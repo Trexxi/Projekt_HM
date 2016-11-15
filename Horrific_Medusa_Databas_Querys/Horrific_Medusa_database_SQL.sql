@@ -120,7 +120,7 @@ CREATE TABLE [dbo].[Scheme](
 	[ArtistID] [int] NOT NULL,
 	[SchemeStartDate] [datetime] NOT NULL,
 	[SchemeEndDate] [datetime] NOT NULL,
-	[ReservationID] [int] NOT NULL,
+	[ReservationID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
