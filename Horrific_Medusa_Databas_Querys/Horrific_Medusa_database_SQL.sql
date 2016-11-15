@@ -6,7 +6,7 @@ USE Horrific_Medusa_Database;
 GO
 
 CREATE TABLE [dbo].[User](
-	[UserID] [int] NOT NULL,
+	[UserID] [int] IDENTITY(1,1) NOT NULL,
 	[UserName] [nvarchar](max) NOT NULL,
 	[Password] [nvarchar](max) NOT NULL,
 	[SSN] [bigint] NOT NULL,
@@ -43,7 +43,7 @@ PRIMARY KEY CLUSTERED
 GO
 
 CREATE TABLE [dbo].[Gallery](
-	[GalleryID] [int] NOT NULL,
+	[GalleryID] [int] IDENTITY(1,1) NOT NULL,
 	[GalleryName] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -69,7 +69,7 @@ CREATE TABLE [dbo].[GalleryAssembly](
 GO
 
 CREATE TABLE [dbo].[Pictures](
-	[PictureID] [int] NOT NULL,
+	[PictureID] [int] IDENTITY(1,1) NOT NULL,
 	[Picture] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -84,7 +84,7 @@ PRIMARY KEY CLUSTERED
 GO
 
 CREATE TABLE [dbo].[Reservation](
-	[ReservationID] [int] NOT NULL,
+	[ReservationID] [int] IDENTITY(1,1) NOT NULL,
 	[UserID] [int] NOT NULL,
 	[ArtistID] [int] NOT NULL,
 	[ReservationTypeID] [int] NOT NULL,
@@ -151,7 +151,7 @@ GO
 
 CREATE TABLE [dbo].[Contact](
 	[ContactID] [int] IDENTITY(1,1) NOT NULL,
-	[PhoneNumber] [int] NULL,
+	[PhoneNumber] [bigint] NULL,
 	[AddressID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
