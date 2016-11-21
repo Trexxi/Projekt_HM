@@ -152,7 +152,7 @@ CREATE TABLE [dbo].[Contact](
 GO
 
 CREATE TABLE [dbo].[Confirmation](
-	[ConfirmationID] [int] NOT NULL,
+	[ConfirmationID] [int] IDENTITY(1,1) NOT NULL,
 	[UserID] [int] NOT NULL,
 	[ArtistID] [int] NOT NULL,
 	[ReservationID] [int] NOT NULL,
@@ -196,7 +196,7 @@ PRIMARY KEY CLUSTERED
 GO
 
 CREATE TABLE [dbo].[Reminder](
-	[RiminderID] [int] NOT NULL,
+	[RiminderID] [int] IDENTITY(1,1) NOT NULL,
 	[UserID] [int] NOT NULL,
 	[ResverationID] [int] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
@@ -268,7 +268,7 @@ CREATE TABLE [dbo].[AddressPerson](
 GO
 
 CREATE TABLE [dbo].[Address](
-	[AddressID] [int] NOT NULL,
+	[AddressID] [int] IDENTITY(1,1) NOT NULL,
 	[Street] [nvarchar](max) NULL,
 	[ZIP] [int] NOT NULL,
 	[County] [nvarchar](max) NULL,
