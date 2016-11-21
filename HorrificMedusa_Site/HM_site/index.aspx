@@ -10,10 +10,13 @@
     <form id="form1" runat="server">
     <div>
     
+        <img alt="" src="" style="width: 929px; height: 229px" /><br />
+        <asp:Menu ID="Menu1" runat="server">
+        </asp:Menu>
+    
     </div>
-        
-       
-       
+    
+
     </form>
 </body>
 </html>
