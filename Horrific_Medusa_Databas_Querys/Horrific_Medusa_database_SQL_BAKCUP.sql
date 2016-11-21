@@ -10,6 +10,7 @@ CREATE TABLE [dbo].[User](
 	[UserName] [nvarchar](max) NOT NULL,
 	[Password] [nvarchar](max) NOT NULL,
 	[SSN] [bigint] NOT NULL,
+	[SchemeID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -57,7 +58,7 @@ PRIMARY KEY CLUSTERED
 GO
 
 CREATE TABLE [dbo].[GalleryAssembly](
-	[GalleryID] [int] NULL,
+	[GalleryID] [int] NOT NULL,
 	[PictureID] [int]  NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -84,9 +85,11 @@ GO
 
 CREATE TABLE [dbo].[Reservation](
 	[ReservationID] [int] IDENTITY(1,1) NOT NULL,
-	[UserID] [int] NULL,
-	[ArtistID] [int] NULL,
-	[ReservationTypeID] [int] NULL,
+	[UserID] [int] NOT NULL,
+	[ArtistID] [int] NOT NULL,
+	[ReservationTypeID] [int] NOT NULL,
+	[StartDate] [datetime] NOT NULL,
+	[EndTime] [datetime] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -99,8 +102,19 @@ CREATE TABLE [dbo].[Reservation](
 
 GO
 
+CREATE TABLE [dbo].[ReservationScheme](
+	[ReservationID] [int] NOT NULL,
+	[SchemeID] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
+	[CreatedBy] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedBy] [int] NULL,
+) ON [PRIMARY]
+
+GO
+
 CREATE TABLE [dbo].[Scheme](
-	[SchemeID] [int] IDENTITY (1,1) NOT NULL,
+	[SchemeID] [int] NOT NULL,
 	[AvailableTime] [bit] NULL,
 	[InformationBox] [nvarchar](max) NULL,
 	[ArtistID] [int] NOT NULL,
@@ -291,6 +305,13 @@ GO
 ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_Person]
 GO
 
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_Scheme] FOREIGN KEY([SchemeID])
+REFERENCES [dbo].[Scheme] ([SchemeID])
+GO
+
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_Scheme]
+GO
+
 ALTER TABLE [dbo].[TattooArtist]  WITH CHECK ADD  CONSTRAINT [FK_TattooArtist_Gallery] FOREIGN KEY([GalleryID])
 REFERENCES [dbo].[Gallery] ([GalleryID])
 GO
@@ -338,6 +359,20 @@ REFERENCES [dbo].[User] ([UserID])
 GO
 
 ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_User]
+GO
+
+ALTER TABLE [dbo].[ReservationScheme]  WITH CHECK ADD  CONSTRAINT [FK_ReservationScheme_Reservation] FOREIGN KEY([ReservationID])
+REFERENCES [dbo].[Reservation] ([ReservationID])
+GO
+
+ALTER TABLE [dbo].[ReservationScheme] CHECK CONSTRAINT [FK_ReservationScheme_Reservation]
+GO
+
+ALTER TABLE [dbo].[ReservationScheme]  WITH CHECK ADD  CONSTRAINT [FK_ReservationScheme_Scheme] FOREIGN KEY([SchemeID])
+REFERENCES [dbo].[Scheme] ([SchemeID])
+GO
+
+ALTER TABLE [dbo].[ReservationScheme] CHECK CONSTRAINT [FK_ReservationScheme_Scheme]
 GO
 
 ALTER TABLE [dbo].[Scheme]  WITH CHECK ADD  CONSTRAINT [FK_Scheme_Reservation] FOREIGN KEY([ReservationID])
