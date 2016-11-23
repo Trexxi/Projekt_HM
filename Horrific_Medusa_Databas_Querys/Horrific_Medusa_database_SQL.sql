@@ -28,7 +28,6 @@ CREATE TABLE [dbo].[TattooArtist](
 	[UserID] [int] NOT NULL,
 	[GalleryID] [int] NULL,
 	[Description] [nvarchar](max) NULL,
-	[SchemeID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
