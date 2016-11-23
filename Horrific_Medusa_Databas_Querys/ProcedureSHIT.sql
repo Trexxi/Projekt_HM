@@ -2,59 +2,73 @@
 USE Horrific_Medusa_Database
 GO
 
-CREATE Procedure uspLogin @UserName nvarchar(max), @Password nvarchar(max)
+/* Signs the user in */
+CREATE Procedure uspLogin @UserName nvarchar(100), @Password nvarchar(25)
 AS
 BEGIN
 	SELECT top 100 U.UserID
-	FROM Horrific_Medusa_Database.dbo.[User] AS U
+	FROM dbo.[User] AS U
 	WHERE U.UserName = @UserName And U.[Password] = @Password
 END
 GO
 
+/* Gets/collects picture and name to gallery */
 CREATE Procedure uspGallery @GalleryID int
 AS
 BEGIN
 	SELECT top 100 GA.GalleryID
 			, GA.PictureID
 			, G.GalleryName
-	FROM Horrific_Medusa_Database.dbo.GalleryAssembly AS GA
-	JOIN Horrific_Medusa_Database.dbo.Gallery G ON GA.GalleryID = G.GalleryID
+	FROM dbo.GalleryAssembly AS GA
+	JOIN dbo.Gallery G ON GA.GalleryID = G.GalleryID
 	WHERE GA.GalleryID = @GalleryID
 END 
 GO
 
+/* Makes/creates a new resevation */
 CREATE Procedure uspReservation @UserID int, @ArtistID int, 
 	@ReservationTypeID int, @StartDate datetime, @EndTime datetime
 AS
 BEGIN
-	SELECT top 100 RE.ReservationID
-	FROM Horrific_Medusa_Database.dbo.Reservation AS RE
-	WHERE RE.UserID = @UserID And RE.ArtistID = @ArtistID And 
-		RE.ReservationTypeID = @ReservationTypeID And RE.StartDate = @StartDate 
-		And RE.EndTime = @EndTime
+	INSERT INTO [dbo].[Reservation]
+           ([UserID]
+           ,[ArtistID]
+           ,[ReservationTypeID]
+           ,[StartDate]
+           ,[EndTime]
+           ,[CreatedBy])
+     VALUES
+           (@UserID
+           ,@ArtistID
+           ,@ReservationTypeID
+           ,@StartDate
+           ,@EndTime
+           ,@UserID)
 END
 GO
 
+/* Makes/collects a confirmation */
 CREATE Procedure uspConfirmation @ReservationID int
 AS
 BEGIN
 	SELECT top 100 C.ConfirmationID
 			, R.StartDate
 			, R.EndTime
-	FROM Horrific_Medusa_Database.dbo.Confirmation AS C
-	JOIN Horrific_Medusa_Database.dbo.Reservation R ON C.ReservationID = R.ReservationID
+	FROM dbo.Confirmation AS C
+	JOIN dbo.Reservation R ON C.ReservationID = R.ReservationID
 	WHERE C.ReservationID = @ReservationID
 END
 GO
 
+/* Makes/collects a reminder */
 CREATE Procedure uspReminder @ReservationID int
 AS
 BEGIN
 	SELECT top 100 REM.RiminderID
 			, RE.StartDate
 			, RE.EndTime
-	FROM Horrific_Medusa_Database.dbo.Reminder AS REM
-	JOIN Horrific_Medusa_Database.dbo.Reservation RE ON REM.ResverationID = RE.ReservationID
+	FROM dbo.Reminder AS REM
+	JOIN dbo.Reservation RE ON REM.ResverationID = RE.ReservationID
 	WHERE ReservationID = @ReservationID
 END
 GO
