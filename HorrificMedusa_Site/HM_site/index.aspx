@@ -13,10 +13,10 @@
         <asp:Button ID="Button1" runat="server" Text="Logga In" />
         <asp:Button ID="Button2" runat="server" Text="Registrera" />
         <br />
-        <asp:Menu ID="Menu1" runat="server">
+        <asp:Menu ID="Menu1" runat="server" StaticSubMenuIndent="16px">
         </asp:Menu>
     
-    </div>
+        </div>
     
 
     </form>

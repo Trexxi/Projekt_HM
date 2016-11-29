@@ -16,4 +16,9 @@ public partial class index : System.Web.UI.Page
     {
 
     }
+
+    protected void Menu1_MenuItemClick1(object sender, MenuEventArgs e)
+    {
+
+    }
 }
