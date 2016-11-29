@@ -56,7 +56,16 @@ INSERT INTO Reservation(UserID, ArtistID, ReservationTypeID) VALUES (4, 1, 1)
 INSERT INTO Reservation(UserID, ArtistID, ReservationTypeID) VALUES (6, 1, 1)
 INSERT INTO Reservation(UserID, ArtistID, ReservationTypeID) VALUES (5, 1, 1)
 INSERT INTO Reservation(UserID, ArtistID, ReservationTypeID) VALUES (4, 1, 2)
-INSERT INTO Reservation(UserID, ArtistID, ReservationTypeID) VALUES (1, 1, 3)
+INSERT INTO Reservation(ReservationTypeID) VALUES (3)
+INSERT INTO Reservation (UserID, ArtistID, ReservationTypeID) VALUES (4, 2, 1)
+INSERT INTO Reservation (UserID, ArtistID, ReservationTypeID) VALUES (5, 2, 1)
+INSERT INTO Reservation (UserID, ArtistID, ReservationTypeID) VALUES (6, 3, 1)
+INSERT INTO Reservation (UserID, ArtistID, ReservationTypeID) VALUES (7, 3, 1)
+/** Kör filen INSERT_DATA 2 **/
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 
 
 

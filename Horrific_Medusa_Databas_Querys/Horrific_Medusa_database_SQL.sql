@@ -7,8 +7,8 @@ GO
 
 CREATE TABLE [dbo].[User](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
-	[UserName] [nvarchar](max) NOT NULL,
-	[Password] [nvarchar](max) NOT NULL,
+	[UserName] [nvarchar](100) NOT NULL,
+	[Password] [nvarchar](25) NOT NULL,
 	[SSN] [bigint] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -42,7 +42,7 @@ GO
 
 CREATE TABLE [dbo].[Gallery](
 	[GalleryID] [int] IDENTITY(1,1) NOT NULL,
-	[GalleryName] [nvarchar](max) NULL,
+	[GalleryName] [nvarchar](50) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -120,7 +120,7 @@ GO
 
 CREATE TABLE [dbo].[ReservationType](
 	[ReservationTypeID] [int] NOT NULL,
-	[ReservationName] [nvarchar](max) NULL,
+	[ReservationName] [nvarchar](25) NULL,
 	[ReservationTypeTime] [int] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -152,10 +152,7 @@ GO
 
 CREATE TABLE [dbo].[Confirmation](
 	[ConfirmationID] [int] IDENTITY(1,1) NOT NULL,
-	[UserID] [int] NOT NULL,
-	[ArtistID] [int] NOT NULL,
 	[ReservationID] [int] NOT NULL,
-	[ReservationTypeID] [int] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -196,7 +193,6 @@ GO
 
 CREATE TABLE [dbo].[Reminder](
 	[RiminderID] [int] IDENTITY(1,1) NOT NULL,
-	[UserID] [int] NOT NULL,
 	[ResverationID] [int] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -223,7 +219,7 @@ GO
 
 CREATE TABLE [dbo].[ReminderType](
 	[ReminderTypeID] [int] NOT NULL,
-	[ReminderName] [nvarchar](max) NULL,
+	[ReminderName] [nvarchar](50) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -238,10 +234,10 @@ GO
 
 CREATE TABLE [dbo].[Person](
 	[SSN] [bigint] NOT NULL,
-	[FirstName] [nvarchar](max) NULL,
-	[LastName] [nvarchar](max) NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
 	[PhoneNumber] [bigint] NULL,
-	[Email] [nvarchar](max) NULL,
+	[Email] [nvarchar](50) NULL,
 	[AddressID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -268,9 +264,9 @@ GO
 
 CREATE TABLE [dbo].[Address](
 	[AddressID] [int] IDENTITY(1,1) NOT NULL,
-	[Street] [nvarchar](max) NULL,
+	[Street] [nvarchar](50) NULL,
 	[ZIP] [int] NOT NULL,
-	[County] [nvarchar](max) NULL,
+	[County] [nvarchar](60) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -365,27 +361,6 @@ REFERENCES [dbo].[Reservation] ([ReservationID])
 GO
 
 ALTER TABLE [dbo].[Confirmation] CHECK CONSTRAINT [FK_Confirmation_Reservation]
-GO
-
-ALTER TABLE [dbo].[Confirmation]  WITH CHECK ADD  CONSTRAINT [FK_Confirmation_ReservationType] FOREIGN KEY([ReservationTypeID])
-REFERENCES [dbo].[ReservationType] ([ReservationTypeID])
-GO
-
-ALTER TABLE [dbo].[Confirmation] CHECK CONSTRAINT [FK_Confirmation_ReservationType]
-GO
-
-ALTER TABLE [dbo].[Confirmation]  WITH CHECK ADD  CONSTRAINT [FK_Confirmation_TattooArtist] FOREIGN KEY([ArtistID])
-REFERENCES [dbo].[TattooArtist] ([ArtistID])
-GO
-
-ALTER TABLE [dbo].[Confirmation] CHECK CONSTRAINT [FK_Confirmation_TattooArtist]
-GO
-
-ALTER TABLE [dbo].[Confirmation]  WITH CHECK ADD  CONSTRAINT [FK_Confirmation_User] FOREIGN KEY([UserID])
-REFERENCES [dbo].[User] ([UserID])
-GO
-
-ALTER TABLE [dbo].[Confirmation] CHECK CONSTRAINT [FK_Confirmation_User]
 GO
 
 ALTER TABLE [dbo].[ConfirmationAssembly]  WITH CHECK ADD  CONSTRAINT [FK_ConfirmationAssembly_Confirmation] FOREIGN KEY([ConfirmationID])
