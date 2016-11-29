@@ -7,8 +7,8 @@ GO
 
 CREATE TABLE [dbo].[User](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
-	[UserName] [nvarchar](100) NOT NULL,
-	[Password] [nvarchar](25) NOT NULL,
+	[UserName] [nvarchar](max) NOT NULL,
+	[Password] [nvarchar](max) NOT NULL,
 	[SSN] [bigint] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -42,7 +42,7 @@ GO
 
 CREATE TABLE [dbo].[Gallery](
 	[GalleryID] [int] IDENTITY(1,1) NOT NULL,
-	[GalleryName] [nvarchar](50) NULL,
+	[GalleryName] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -120,7 +120,7 @@ GO
 
 CREATE TABLE [dbo].[ReservationType](
 	[ReservationTypeID] [int] NOT NULL,
-	[ReservationName] [nvarchar](25) NULL,
+	[ReservationName] [nvarchar](max) NULL,
 	[ReservationTypeTime] [int] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -219,7 +219,7 @@ GO
 
 CREATE TABLE [dbo].[ReminderType](
 	[ReminderTypeID] [int] NOT NULL,
-	[ReminderName] [nvarchar](50) NULL,
+	[ReminderName] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -234,10 +234,10 @@ GO
 
 CREATE TABLE [dbo].[Person](
 	[SSN] [bigint] NOT NULL,
-	[FirstName] [nvarchar](50) NULL,
-	[LastName] [nvarchar](50) NULL,
+	[FirstName] [nvarchar](max) NULL,
+	[LastName] [nvarchar](max) NULL,
 	[PhoneNumber] [bigint] NULL,
-	[Email] [nvarchar](50) NULL,
+	[Email] [nvarchar](max) NULL,
 	[AddressID] [int] NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
@@ -264,9 +264,9 @@ GO
 
 CREATE TABLE [dbo].[Address](
 	[AddressID] [int] IDENTITY(1,1) NOT NULL,
-	[Street] [nvarchar](50) NULL,
+	[Street] [nvarchar](max) NULL,
 	[ZIP] [int] NOT NULL,
-	[County] [nvarchar](60) NULL,
+	[County] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL DEFAULT(getdate()),
 	[CreatedBy] [int] NULL,
 	[UpdatedDate] [datetime] NULL,
@@ -382,13 +382,6 @@ REFERENCES [dbo].[Reservation] ([ReservationID])
 GO
 
 ALTER TABLE [dbo].[Reminder] CHECK CONSTRAINT [FK_Reminder_Reservation]
-GO
-
-ALTER TABLE [dbo].[Reminder]  WITH CHECK ADD  CONSTRAINT [FK_Reminder_User] FOREIGN KEY([UserID])
-REFERENCES [dbo].[User] ([UserID])
-GO
-
-ALTER TABLE [dbo].[Reminder] CHECK CONSTRAINT [FK_Reminder_User]
 GO
 
 ALTER TABLE [dbo].[ReminderAssembly]  WITH CHECK ADD  CONSTRAINT [FK_ReminderAssembly_Reminder] FOREIGN KEY([ReminderID])
