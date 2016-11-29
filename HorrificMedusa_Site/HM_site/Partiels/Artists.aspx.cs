@@ -11,4 +11,9 @@ public partial class Partiels_Artists : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Server.Transfer("Login.aspx");
+    }
 }

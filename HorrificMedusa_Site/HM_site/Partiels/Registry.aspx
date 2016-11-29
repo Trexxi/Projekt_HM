@@ -10,6 +10,15 @@
     <form id="form1" runat="server">
     <div>
     
+        <br />
+        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+            <WizardSteps>
+                <asp:CreateUserWizardStep runat="server" />
+                <asp:CompleteWizardStep runat="server" />
+            </WizardSteps>
+        </asp:CreateUserWizard>
+        <br />
+    
     </div>
     </form>
 </body>
