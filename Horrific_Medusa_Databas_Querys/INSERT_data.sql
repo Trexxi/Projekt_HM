@@ -1,4 +1,4 @@
-use Horrific_Medusa_Database
+use HM_skitserver
 GO
 
 INSERT INTO Gallery (GalleryName) VALUES ('Andreas Galleri')
