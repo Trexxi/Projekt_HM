@@ -2,7 +2,7 @@
 GO
 CREATE DATABASE Horrific_Medusa_Database;*/
 
-USE Horrific_Medusa_Database;
+USE HM_skitserver;
 GO
 
 CREATE TABLE [dbo].[User](
