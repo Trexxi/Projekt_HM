@@ -2,7 +2,34 @@
 USE HM_skitserver
 GO
 
-/* Signs the user in */
+/*
+===============================================================================
+	Procedure Name..........: uspLogin
+	Parameters..............: UserName, Password
+	Return Value............: UserID
+	Database................: Horrific_Medusa_Database
+	Server..................: DESKTOP-IKIRSNC\SQLEXPRESS
+	Date....................: 2016-11-14
+	By......................: Sofia Andersson
+	Used On.................:
+	Components..............:
+	Change Date, By.........: 2016-11-15, Sofia Andersson
+	Change Date, By.........: 2016-11-18, Sofia Andersson
+	Change Date, By.........: 2016-11-21, Sofia Andersson
+	Change Date, By.........: 2016-11-22, Sofia Andersson
+	Change Date, By.........: 2016-11-23, Sofia Andersson
+	Change Date, By.........: 2016-12-2, Sofia Andersson
+	Change..................: Imported the procedure to the new server
+		Database............: HM_skitserver
+		Server..............: 10.17.6.144
+	Change Date, By.........: 2016-12-5, Sofia Andersson
+	Change..................: Added better comments
+	===========================================================================
+	Description: Takes UserName and Password, and sign in the person by 
+				 returning the right UserID
+	Kontrollerar:
+	===========================================================================
+*/
 ALTER Procedure uspLogin @UserName nvarchar(100), @Password nvarchar(25)
 AS
 BEGIN
@@ -12,7 +39,34 @@ BEGIN
 END
 GO
 
-/* Gets/collects picture and name to gallery */
+/*
+===============================================================================
+	Procedure Name..........: uspGallery
+	Parameters..............: GalleryID
+	Return Value............: GalleryID, PictureID, GalleryName
+	Database................: Horrific_Medusa_Database
+	Server..................: DESKTOP-IKIRSNC\SQLEXPRESS
+	Date....................: 2016-11-14
+	By......................: SofiaAndersson
+	Used On.................:
+	Components..............:
+	Change Date, By.........: 2016-11-15, Sofia Andersson
+	Change Date, By.........: 2016-11-18, Sofia Andersson
+	Change Date, By.........: 2016-11-21, Sofia Andersson
+	Change Date, By.........: 2016-11-22, Sofia Andersson
+	Change Date, By.........: 2016-11-23, Sofia Andersson
+	Change Date, By.........: 2016-12-2, Sofia Andersson
+	Change..................: Imported the procedure to the new server
+		Database............: HM_skitserver
+		Server..............: 10.17.6.144
+	Change Date, By.........: 2016-12-5, Sofia Andersson
+	Change..................: Added better comments
+	===========================================================================
+	Description: Gets/collects picture and name to gallery, by reciveing the
+				 the galleryID
+	Kontrollerar:
+	===========================================================================
+*/
 ALTER Procedure uspGallery @GalleryID int
 AS
 BEGIN
@@ -25,8 +79,35 @@ BEGIN
 END 
 GO
 
-/* Makes/creates a new resevation */
-CREATE Procedure uspReservation @UserID int, @ArtistID int, 
+/*
+===============================================================================
+	Procedure Name..........: uspReservation
+	Parameters..............: UserID, ArtistID, ReservationTypeID, 
+							  SchemeStartDate, SchemeEndDate
+	Return Value............:
+	Database................: Horrific_Medusa_Database
+	Server..................: DESKTOP-IKIRSNC\SQLEXPRESS
+	Date....................: 2016-11-14
+	By......................: Sofia Andersson
+	Used On.................:
+	Components..............:
+	Change Date, By.........: 2016-11-15, Sofia Andersson
+	Change Date, By.........: 2016-11-18, Sofia Andersson
+	Change Date, By.........: 2016-11-21, Sofia Andersson
+	Change Date, By.........: 2016-11-22, Sofia Andersson
+	Change Date, By.........: 2016-11-23, Sofia Andersson
+	Change Date, By.........: 2016-12-2, Sofia Andersson
+	Change..................: Imported the procedure to the new server
+		Database............: HM_skitserver
+		Server..............: 10.17.6.144
+	Change Date, By.........: 2016-12-5, Sofia Andersson
+	Change..................: Added better comments and fixed an other insert
+	===========================================================================
+	Description: Makes / creates a new reservation
+	Kontrollerar:
+	===========================================================================
+*/
+ALTER Procedure uspReservation @UserID int, @ArtistID int, 
 	@ReservationTypeID int, @SchemeStartDate datetime, @SchemeEndDate datetime
 AS
 BEGIN
@@ -51,7 +132,33 @@ BEGIN
 END
 GO
 
-/* Makes/collects a confirmation */
+/*
+===============================================================================
+	Procedure Name..........: uspConfirmation
+	Parameters..............: ReservationID
+	Return Value............: ConfirmationID, SchemeStartDate, SchemeEndDate
+	Database................: Horrific_Medusa_Database
+	Server..................: DESKTOP-IKIRSNC\SQLEXPRESS
+	Date....................: 2016-11-14
+	By......................: Sofia Andersson
+	Used On.................:
+	Components..............:
+	Change Date, By.........: 2016-11-15, Sofia Andersson
+	Change Date, By.........: 2016-11-18, Sofia Andersson
+	Change Date, By.........: 2016-11-21, Sofia Andersson
+	Change Date, By.........: 2016-11-22, Sofia Andersson
+	Change Date, By.........: 2016-11-23, Sofia Andersson
+	Change Date, By.........: 2016-12-2, Sofia Andersson
+	Change..................: Imported the procedure to the new server
+		Database............: HM_skitserver
+		Server..............: 10.17.6.144
+	Change Date, By.........: 2016-12-5, Sofia Andersson
+	Change..................: Added better comments
+	===========================================================================
+	Description: Makes/ collects a confirmation
+	Kontrollerar:
+	===========================================================================
+*/
 ALTER Procedure uspConfirmation @ReservationID int
 AS
 BEGIN
@@ -65,7 +172,33 @@ BEGIN
 END
 GO
 
-/* Makes/collects a reminder */
+/*
+===============================================================================
+	Procedure Name..........: uspReminder
+	Parameters..............: ReservationID
+	Return Value............: RiminderID, SchemeStartDate, SchemeEndDate
+	Database................: Horrific_Medusa_Database
+	Server..................: DESKTOP-IKIRSNC\SQLEXPRESS
+	Date....................: 2016-11-14
+	By......................: Sofia Andersson
+	Used On.................:
+	Components..............:
+	Change Date, By.........: 2016-11-15, Sofia Andersson
+	Change Date, By.........: 2016-11-18, Sofia Andersson
+	Change Date, By.........: 2016-11-21, Sofia Andersson
+	Change Date, By.........: 2016-11-22, Sofia Andersson
+	Change Date, By.........: 2016-11-23, Sofia Andersson
+	Change Date, By.........: 2016-12-2, Sofia Andersson
+	Change..................: Imported the procedure to the new server
+		Database............: HM_skitserver
+		Server..............: 10.17.6.144
+	Change Date, By.........: 2016-12-5, Sofia Andersson
+	Change..................: Added better comments
+	===========================================================================
+	Description: Makes / collects a reminder
+	Kontrollerar:
+	===========================================================================
+*/
 ALTER Procedure uspReminder @ReservationID int
 AS
 BEGIN
