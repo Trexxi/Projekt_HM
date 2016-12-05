@@ -1,9 +1,9 @@
 
-USE Horrific_Medusa_Database
+USE HM_skitserver
 GO
 
 /* Signs the user in */
-CREATE Procedure uspLogin @UserName nvarchar(100), @Password nvarchar(25)
+ALTER Procedure uspLogin @UserName nvarchar(100), @Password nvarchar(25)
 AS
 BEGIN
 	SELECT top 100 U.UserID
@@ -13,7 +13,7 @@ END
 GO
 
 /* Gets/collects picture and name to gallery */
-CREATE Procedure uspGallery @GalleryID int
+ALTER Procedure uspGallery @GalleryID int
 AS
 BEGIN
 	SELECT top 100 GA.GalleryID
@@ -27,48 +27,54 @@ GO
 
 /* Makes/creates a new resevation */
 CREATE Procedure uspReservation @UserID int, @ArtistID int, 
-	@ReservationTypeID int, @StartDate datetime, @EndTime datetime
+	@ReservationTypeID int, @SchemeStartDate datetime, @SchemeEndDate datetime
 AS
 BEGIN
 	INSERT INTO [dbo].[Reservation]
            ([UserID]
            ,[ArtistID]
            ,[ReservationTypeID]
-           ,[StartDate]
-           ,[EndTime]
            ,[CreatedBy])
      VALUES
            (@UserID
            ,@ArtistID
            ,@ReservationTypeID
-           ,@StartDate
-           ,@EndTime
            ,@UserID)
+
+	INSERT INTO [dbo].[Scheme]
+			([SchemeStartDate]
+           ,[SchemeEndDate])
+	VALUES
+			(@SchemeStartDate
+			,@SchemeEndDate)
+
 END
 GO
 
 /* Makes/collects a confirmation */
-CREATE Procedure uspConfirmation @ReservationID int
+ALTER Procedure uspConfirmation @ReservationID int
 AS
 BEGIN
 	SELECT top 100 C.ConfirmationID
-			, R.StartDate
-			, R.EndTime
+			, S.SchemeStartDate
+			, S.SchemeEndDate
 	FROM dbo.Confirmation AS C
 	JOIN dbo.Reservation R ON C.ReservationID = R.ReservationID
+	JOIN dbo.Scheme S ON C.ReservationID = S.ReservationID
 	WHERE C.ReservationID = @ReservationID
 END
 GO
 
 /* Makes/collects a reminder */
-CREATE Procedure uspReminder @ReservationID int
+ALTER Procedure uspReminder @ReservationID int
 AS
 BEGIN
 	SELECT top 100 REM.RiminderID
-			, RE.StartDate
-			, RE.EndTime
+			, S.SchemeStartDate
+			, S.SchemeEndDate
 	FROM dbo.Reminder AS REM
 	JOIN dbo.Reservation RE ON REM.ResverationID = RE.ReservationID
-	WHERE ReservationID = @ReservationID
+	JOIN dbo.Scheme S ON REM.ResverationID = S.ReservationID
+	WHERE REM.ResverationID = @ReservationID
 END
 GO
