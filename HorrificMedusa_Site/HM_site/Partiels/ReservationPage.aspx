@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReservationPage.aspx.cs" Inherits="Partiels_ReservationPage" %>
-
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
 
 <!DOCTYPE html>
@@ -21,7 +20,17 @@
 
         <br />
     
-        <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server" style="top: 0px; left: 0px; height: 214px"></DayPilot:DayPilotScheduler>
+        <daypilot:daypilotcalendar 
+     id="DayPilotCalendar1" 
+     runat="server" 
+     DataStartField="eventstart" 
+     DataEndField="eventend"
+     DataTextField="name" 
+     DataValueField="id" 
+     Days="5" 
+     EventMoveHandling="CallBack"
+     >
+    </daypilot:daypilotcalendar>
     </div>
        
     </form>
