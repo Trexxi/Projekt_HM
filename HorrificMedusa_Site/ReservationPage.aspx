@@ -21,16 +21,15 @@
         <br />
     
         <daypilot:daypilotcalendar 
-     id="DayPilotCalendar1" 
-     runat="server" 
-     DataStartField="eventstart" 
-     DataEndField="eventend"
-     DataTextField="name" 
-     DataValueField="id" 
-     Days="5" 
-     EventMoveHandling="CallBack"
-     >
-    </daypilot:daypilotcalendar>
+     id="DayPilotCalendar" 
+    runat="server" 
+    Days="5"
+    DataStartField="startDate"
+    DataEndField="endDate"
+    DataTextField="Tattuerare"
+    style="top:100px; left: -130px"
+     
+            />
     </div>
        
     </form>
