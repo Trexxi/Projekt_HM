@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,7 +20,7 @@ public partial class Partiels_ReservationPage : System.Web.UI.Page
             DataBind();
         }
         }
-
+    
     private DataTable getScheme(DateTime start, int days)
     {
         DataTable dt = new DataTable();
@@ -27,6 +29,15 @@ public partial class Partiels_ReservationPage : System.Web.UI.Page
         SqlConnection connStr = new SqlConnection(myCS);
 
         //Procedures from SQL
-        SqlCommand cmd = new SqlCommand("uspReservation")
+        SqlCommand cmd = new SqlCommand("uspReservation", connStr);
+
+        // What type of SQL command
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        try
+        {
+            connStr.Open();
+
+        }
     }
     }
