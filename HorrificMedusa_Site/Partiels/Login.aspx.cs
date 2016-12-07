@@ -33,4 +33,9 @@ public partial class Partiels_Login : System.Web.UI.Page
             Response.Write("<script>alert('Please enter valid Username and Password')</script>");
         }
     }
+
+    protected void txtpassword_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }
