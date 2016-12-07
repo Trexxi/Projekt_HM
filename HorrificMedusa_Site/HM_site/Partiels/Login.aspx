@@ -9,7 +9,16 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        
+        <asp:TextBox ID="txtusername" placeholder="username" runat="server"></asp:TextBox>
+        </br>
+        </br>
+        <asp:TextBox ID="txtpassword" placeholder="password" runat="server" TextMode="Password"></asp:TextBox>
+        </br>
+        </br>
+        <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" />
+        </br>
+        
         <br />
         <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
         </asp:Login>
