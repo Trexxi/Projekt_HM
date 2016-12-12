@@ -26,4 +26,14 @@ public partial class Registry : System.Web.UI.Page
     {
 
     }
+
+    protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnRegistryButton_Click(object sender, EventArgs e)
+    {
+
+    }
 }
