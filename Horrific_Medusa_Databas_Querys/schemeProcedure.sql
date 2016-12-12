@@ -10,30 +10,32 @@
 	By......................: Beatrice Vilhelmsson
 	Used On.................:
 	Components..............:
-	Change Date, By.........: -
-	Change..................: -
+	Change Date, By.........: 2016-12-12, Beatrice Vilhelmsson
+	Change..................: Parameteters
 	===========================================================================
 	Description: Fetches the Scheme
-	Kontrollerar:
+	Kontrollerar: 
 	===========================================================================
 */
-
-CREATE PROCEDURE uspScheme @SchemeID int, @ArtistID int, @InformationBox nvarchar(MAX), @ReservationID int, @SchemeStartDate datetime , @SchemeEndDate datetime
+ALTER PROCEDURE uspScheme @WeekNumber int, @Artist int
 AS
 BEGIN
 	SELECT TOP 100 s.SchemeID,
 				s.ArtistID,
-				p.firstName,
+				p.firstName AS ArtistName,
 				s.InformationBox,
 				s.ReservationID,
 				s.SchemeStartDate,
 				s.SchemeEndDate,
+				DATEPART(ww, SchemeStartDate) AS WeekNumber,
+				DATEPART(dd, SchemeStartDate) AS [Date]
 	FROM dbo.Scheme AS s
 	JOIN dbo.TattooArtist ta ON s.ArtistID = ta.ArtistID
-	JOIN dbo.[User] u ON ta.UserID on u.UserID
-	JOIN dbo Person p on u.SS on p.SSN
-
+	JOIN dbo.[User] u ON ta.UserID = u.UserID
+	JOIN dbo.Person p on u.SSN = p.SSN
+	where @WeekNumber = DATEPART(ww, SchemeStartDate) AND @Artist = s.ArtistID
 	END
 
 	GO
 	
+	EXEC uspScheme @WeekNumber = 47 , @Artist = 2
