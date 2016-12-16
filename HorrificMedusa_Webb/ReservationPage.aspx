@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReservationPage.aspx.cs" Inherits="ReservationPage" %>
 
+<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +27,13 @@
             </Items>
         </asp:Menu>
     </div>
+        <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" Days ="5"
+            DataStartField="SchemeStartDate"
+            DataEndField="SchemeEndDate"
+            DataTextField ="ArtistName" + "InformatinBox"
+            DataValueField="SchemeID"
+            style="top: 130px; left: -136px" 
+            />
     </form>
 </body>
 </html>
