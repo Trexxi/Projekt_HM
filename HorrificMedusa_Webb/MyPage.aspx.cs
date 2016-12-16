@@ -9,7 +9,7 @@ public partial class MyPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        TextBox1.Text = Session["UserId"].ToString();
     }
 
     protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
@@ -19,11 +19,17 @@ public partial class MyPage : System.Web.UI.Page
 
     protected void btnLogIn_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
     }
 
     protected void btnRegistry_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Registry.aspx");
     }
 }

@@ -16,4 +16,20 @@ public partial class Artists : System.Web.UI.Page
     {
 
     }
+
+    protected void btnRegistry_Click1(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Registry.aspx");
+    }
+
+    protected void btnLogIn_Click1(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }

@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Button ID="btnLogIn" runat="server" Text="Logga In" />
-        <asp:Button ID="btnRegistry" runat="server" Text="Registrera" />
+        <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click1" />
+        <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click1" />
         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" m/>
         <br />
@@ -24,6 +24,9 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
+        <asp:Image ID="artistImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
+        <br /><asp:Image ID="artistImg2" runat="server" ImageURL="~/img/user.jpg" Width="100" ImageAlign="Right"/>
+        <br /><asp:Image ID="artistImg3" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
     </div>
     </form>
 </body>

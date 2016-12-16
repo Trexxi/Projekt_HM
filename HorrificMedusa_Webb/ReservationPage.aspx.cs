@@ -23,12 +23,18 @@ public partial class ReservationPage : System.Web.UI.Page
 
     protected void btnLogIn_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
     }
 
     protected void btnRegistry_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Registry.aspx");
     }
 
     private DataTable calendarEvents(DateTime start, int week)

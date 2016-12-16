@@ -24,6 +24,9 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
+
+        <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" />
+        <asp:Image ID="PageImg2" runat="server" ImageURL="~/img/img2.jpg" />
     </div>
     </form>
 </body>
