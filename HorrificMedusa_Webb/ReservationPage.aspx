@@ -27,12 +27,13 @@
             </Items>
         </asp:Menu>
     </div>
-        <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" Days ="5"
+
+        <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" Days="5"
             DataStartField="SchemeStartDate"
             DataEndField="SchemeEndDate"
-            DataTextField ="ArtistName" + "InformatinBox"
+            DataTextField ="ArtistName"
             DataValueField="SchemeID"
-            style="top: 130px; left: -136px" 
+            style='top: 130px; left: -136px' 
             />
     </form>
 </body>
