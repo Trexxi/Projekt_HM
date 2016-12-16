@@ -45,9 +45,8 @@ public class DAL
         {
                 while (dr.Read())
                 {
-                    my2User.FirstName = dr["CalenderId"].ToString();
-                    my2User.LastName = dr["Heading"].ToString();
-                    my2User.UserId = Convert.ToInt16(dr["Heading"].ToString());
+                   
+                    my2User.UserId = Convert.ToInt16(dr["UserID"].ToString());
                 }
             }
             return my2User;
