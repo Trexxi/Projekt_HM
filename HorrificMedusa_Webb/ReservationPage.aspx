@@ -27,14 +27,27 @@
             </Items>
         </asp:Menu>
     </div>
+        <label>Bokningsschema för tattuerare</label><br />
+        <asp:DropDownList ID="ddlArtist" runat="server" AppendDataBoundItems="true"
+            OnSelectedIndexChanged="ddlArtist_SelectedIndexChanged" AutoPostBack="True">
+            <asp:ListItem Text="Välj Tattuerare" Value="0"></asp:ListItem>
+            <asp:ListItem Text="Andreas" Value="1"></asp:ListItem>
+            <asp:ListItem Text="Jörgen" Value="2"></asp:ListItem>
+            <asp:ListItem Text="Malin" Value="3"></asp:ListItem>
+        </asp:DropDownList>
 
-        <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" Days="5"
+        <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" Days="5" 
+            BuisnessEndsHour="16"
+            ScrollPositionHour="8"
+            HeightSpec="BusinessHoursNoScroll"
             DataStartField="SchemeStartDate"
             DataEndField="SchemeEndDate"
             DataTextField ="ArtistName"
             DataValueField="SchemeID"
             style='top: 130px; left: -136px' 
             />
+
+        <asp:Button Text="Boka" OnClick="SubmitBtn_Click" runat="server" />
     </form>
 </body>
 </html>

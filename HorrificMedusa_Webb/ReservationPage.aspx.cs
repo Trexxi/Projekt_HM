@@ -39,13 +39,24 @@ public partial class ReservationPage : Page
         Response.Redirect("Registry.aspx");
     }
 
+    protected void ddlArtist_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DayPilotCalendar1.StartDate = DateTimeExtensions.FirstDateOfWeekISO8601(2016, 46);
+        DayPilotCalendar1.DataSource = calendarEvents(DayPilotCalendar1.StartDate, 46 + 1);
+        DayPilotCalendar1.DataBind();
+    }
+   
+    private int artistBoxWowSuchWOW()
+    {
+        return int.Parse(ddlArtist.SelectedValue);
+    }
     private DataTable calendarEvents(DateTime start, int week)
     {
         dataACC dac = new dataACC();
         DataTable dt = new DataTable();
 
-        dt = dac.getScheme(week, 2);
-
+        dt = dac.getScheme(week, artistBoxWowSuchWOW());
+      
         return dt;
     }
 
@@ -54,5 +65,10 @@ public partial class ReservationPage : Page
         DayPilotCalendar1.StartDate = DateTimeExtensions.FirstDateOfWeekISO8601(2016, 46);
         DayPilotCalendar1.DataSource = calendarEvents(DayPilotCalendar1.StartDate, 46 + 1);
         DayPilotCalendar1.DataBind();
+    }
+
+    protected void SubmitBtn_Click(object sender, EventArgs e)
+    {
+
     }
 }
