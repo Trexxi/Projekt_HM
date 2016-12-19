@@ -25,6 +25,7 @@
             </Items>
         </asp:Menu>
         <asp:Image ID="MapImg1" runat="server" ImageURL="~/img/map.jpg" Width="600"/>
+        <asp:TextBox ID="TextBox" runat="server"></asp:TextBox>
     </div>
 
     </form>
