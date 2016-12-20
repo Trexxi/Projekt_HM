@@ -11,6 +11,7 @@
     <div>
         <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click" />
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click" />
+        <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" />
         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
@@ -24,9 +25,16 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
-    </div>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Label ID="lbRubrik" runat="server" Text="My Page"></asp:Label><br />
+        <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/><br />
+        <asp:TextBox ID="tbInfo1" runat="server" Visible="false"></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo2" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo3" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo4" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo5" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo6" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo7" runat="server" Enabled="False" ></asp:TextBox><br />
+    </div>   
     </form>
 </body>
 </html>

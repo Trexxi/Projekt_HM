@@ -25,7 +25,7 @@
             </Items>
         </asp:Menu>
 
-        <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" />
+        <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" Width="600"/>
         <asp:Image ID="PageImg2" runat="server" ImageURL="~/img/img2.jpg" />
     </div>
     </form>

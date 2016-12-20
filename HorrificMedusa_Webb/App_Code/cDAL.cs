@@ -21,10 +21,10 @@ public class cDAL
     string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
 
 
-    public cUser RenderingMPage(cUser myUser)
+    public cUser PersonalInformation(Int16 UserId)
     {
         // New object
-        cUser my3User = new cUser();
+        cUser myUser = new cUser();
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
@@ -36,7 +36,7 @@ public class cDAL
             // Open the connection to the database
             conn.Open();
             // Insert the Parameter to the procedure
-            cmd.Parameters.AddWithValue("@UserID", myUser.UserId);
+            cmd.Parameters.AddWithValue("@UserID", UserId);
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -44,17 +44,17 @@ public class cDAL
             {
                 while (dr.Read())
                 {
-                    my3User.UserName = dr["UserName"].ToString();
-                    my3User.FirstName = dr["FirstName"].ToString();
-                    my3User.LastName = dr["LastName"].ToString();
-                    my3User.PhoneNumber = dr["PhoneNumber"].ToString();
-                    my3User.County = dr["County"].ToString();
-                    my3User.Street = dr["Street"].ToString();
-                    my3User.ZIP = Convert.ToInt16(dr["ZIP"].ToString());
+                    myUser.UserName = dr["UserName"].ToString();
+                    myUser.FirstName = dr["FirstName"].ToString();
+                    myUser.LastName = dr["LastName"].ToString();
+                    myUser.PhoneNumber = dr["PhoneNumber"].ToString();
+                    myUser.County = dr["County"].ToString();
+                    myUser.Street = dr["Street"].ToString();
+                    myUser.ZIP = Convert.ToInt32(dr["ZIP"].ToString());
 
                 }
             }
-            return my3User;
+            return myUser;
         }
         catch
         {
