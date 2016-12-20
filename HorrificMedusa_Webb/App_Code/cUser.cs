@@ -28,4 +28,11 @@ public class cUser
     public string Street { get; set; }
     public int ZIP { get; set; }
 
+    public string Meeting { get; set; }
+    public string TattoArtist { get; set; }
+    public DateTime Starting { get; set; }
+    public DateTime Ending { get; set; }
+    public DateTime Month { get; set; }
+    public DateTime Day { get; set; }
+    public DateTime Date { get; set; }
 }
