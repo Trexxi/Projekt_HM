@@ -13,6 +13,7 @@
     <div>
         <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click" />
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click" />
+        <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" />
         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
@@ -27,7 +28,7 @@
             </Items>
         </asp:Menu>
     </div>
-        <label>Bokningsschema för tattuerare</label><br />
+        <asp:Label ID="lbRubrikBoka" runat="server" Text="Boka din tid här"></asp:Label><br />
         <asp:DropDownList ID="ddlArtist" runat="server" AppendDataBoundItems="true"
             OnSelectedIndexChanged="ddlArtist_SelectedIndexChanged" AutoPostBack="True">
             <asp:ListItem Text="Välj Tattuerare" Value="0"></asp:ListItem>

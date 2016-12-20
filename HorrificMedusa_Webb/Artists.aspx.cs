@@ -32,4 +32,9 @@ public partial class Artists : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Login.aspx");
     }
+
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+
+    }
 }
