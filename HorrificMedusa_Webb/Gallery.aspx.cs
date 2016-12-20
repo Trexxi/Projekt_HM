@@ -32,4 +32,9 @@ public partial class Gallery : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Registry.aspx");
     }
+
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+
+    }
 }

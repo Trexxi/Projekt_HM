@@ -11,6 +11,7 @@
     <div>
         <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click1" />
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click1" />
+        <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" />
         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" m/>
         <br />
@@ -24,6 +25,7 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
+        <asp:Label ID="lbRubrikTatt" runat="server" Text="Våra Tattuerare"></asp:Label><br />
         <asp:Image ID="artistImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
         <br /><asp:Image ID="artistImg2" runat="server" ImageURL="~/img/user.jpg" Width="100" ImageAlign="Right"/>
         <br /><asp:Image ID="artistImg3" runat="server" ImageURL="~/img/user.jpg" Width="100"/>

@@ -71,4 +71,9 @@ public partial class ReservationPage : Page
     {
 
     }
+
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+
+    }
 }

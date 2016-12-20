@@ -25,7 +25,7 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:Label ID="lbRubrik" runat="server" Text="My Page"></asp:Label><br />
+        <asp:Label ID="lbRubrik" runat="server" Text="Min Sida"></asp:Label><br />
         <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/><br />
         <asp:TextBox ID="tbInfo1" runat="server" Visible="false"></asp:TextBox><br />
         <asp:TextBox ID="tbInfo2" runat="server" Enabled="False" ></asp:TextBox><br />
