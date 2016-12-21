@@ -52,48 +52,52 @@ public class dataACC
         }
     }
 
-   /* public cSchemeReservation getDataOnScheme(int WeekNumber, int ArtistID)
+    public cSchemeReservation getDataOnScheme(Int16 SchemeID) 
     {
+        // New object
         cSchemeReservation csr = new cSchemeReservation();
-
-        DataTable dt = new DataTable();
-
-        SqlConnection sqlcon = new SqlConnection(connstr);
-
-        SqlCommand cmd = new SqlCommand("uspScheme", sqlcon);
-
+        // Create a connection
+        SqlConnection conn = new SqlConnection(connstr);
+        // Name of the Procedure I want to call
+        SqlCommand cmd = new SqlCommand("uspSchemeInfo", conn);
+        // Type of commad I want to execute
         cmd.CommandType = CommandType.StoredProcedure;
-
         try
         {
-            sqlcon.Open();
-            cmd.Parameters.AddWithValue("@WeekNumber", WeekNumber);
-            cmd.Parameters.AddWithValue("@Artist", ArtistID);
-
+            // Open the connection to the database
+            conn.Open();
+            // Insert the Parameter to the procedure
+            cmd.Parameters.AddWithValue("@SchemeID", SchemeID);
+            // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
 
             {
                 while (dr.Read())
                 {
-                    csr.ArtistName= dr["ArtistName"].ToString();
+                    csr.SchemeID = Convert.ToInt16(dr["SchemeID"]);
+                    csr.ArtistName = dr["ArtistName"].ToString();
+                    csr.SchemeStartDate = Convert.ToDateTime(dr["SchemeStartDate"].ToString());
+                    csr.SchemeEndDate = Convert.ToDateTime(dr["SchemeEndDate"].ToString());
                     csr.InformationBox = dr["InformationBox"].ToString();
-                    csr.SchemeStartDate = dr [""]
-                    ;
+
 
                 }
             }
-            return myUser;
-
+            return csr;
         }
         catch
         {
-
+            // If error
+            throw;
         }
         finally
         {
-
+            // Close and dispose all connections to the databse
+            cmd.Dispose();
+            conn.Close();
+            conn.Dispose();
         }
-
-    }*/
+    }
 }
+   

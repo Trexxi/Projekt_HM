@@ -14,6 +14,7 @@ public class cSchemeReservation
         // TODO: Add constructor logic here
         //
     }
+    public Int16 SchemeID { get; set; }
 
     public string ArtistName { get; set; }
     public string InformationBox { get; set; }

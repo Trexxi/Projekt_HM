@@ -54,6 +54,7 @@
         <asp:TextBox ID="tb1" runat="server"></asp:TextBox>
         <asp:TextBox ID="tb2" runat="server"></asp:TextBox>
         <asp:TextBox ID="tb3" runat="server"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
         <asp:Button Text="Boka" OnClick="SubmitBtn_Click" runat="server" />
     </form>
 </body>
