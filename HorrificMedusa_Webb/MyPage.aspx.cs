@@ -42,7 +42,10 @@ public partial class MyPage : System.Web.UI.Page
 
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
-
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
     }
 
     private void getPersonalInfo(Int16 UserId)

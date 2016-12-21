@@ -145,6 +145,7 @@
                                 </td>
                                 </tr>
                         </table>
+        <asp:Button ID="btnLogIn" runat="server" Text="Logga in på ett redan existerande konto" OnClick="btnLogIn_Click" />
     </div>
     </form>
 </body>

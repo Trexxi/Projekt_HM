@@ -26,4 +26,12 @@ public partial class Registry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnLogIn_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
 }

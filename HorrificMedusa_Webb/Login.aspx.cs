@@ -36,4 +36,12 @@ public partial class Login : System.Web.UI.Page
 
         }
     }
+
+    protected void btnRegistry_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Registry.aspx");
+    }
 }

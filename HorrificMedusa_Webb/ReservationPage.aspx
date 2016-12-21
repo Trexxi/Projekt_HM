@@ -43,7 +43,7 @@
             HeightSpec="BusinessHoursNoScroll"
             DataStartField="SchemeStartDate"
             DataEndField="SchemeEndDate"
-            DataTextField ="ArtistName"
+            DataTextField ="InformationBox"
             DataValueField="SchemeID"
             style='top: 130px; left: -136px' 
             />
