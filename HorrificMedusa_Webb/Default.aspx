@@ -26,8 +26,9 @@
             </Items>
         </asp:Menu>
         <asp:Label ID="lbRubrikHem" runat="server" Text="Horrific Medusa"></asp:Label><br />
-        <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" Width="600"/>
-        <asp:Image ID="PageImg2" runat="server" ImageURL="~/img/img2.jpg" />
+        <asp:Label ID="lbTextHem" runat="server" Text="En tattueringsstudio för alla"></asp:Label><br />
+        <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" Width="400px"/>
+        <asp:Image ID="PageImg2" runat="server" ImageURL="~/img/img2.jpg" Width="400px"/>
     </div>
     </form>
 </body>

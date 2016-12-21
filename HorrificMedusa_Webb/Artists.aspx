@@ -26,9 +26,9 @@
             </Items>
         </asp:Menu>
         <asp:Label ID="lbRubrikTatt" runat="server" Text="Våra Tattuerare"></asp:Label><br />
-        <asp:Image ID="artistImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
-        <br /><asp:Image ID="artistImg2" runat="server" ImageURL="~/img/user.jpg" Width="100" ImageAlign="Right"/>
-        <br /><asp:Image ID="artistImg3" runat="server" ImageURL="~/img/user.jpg" Width="100"/>
+        <asp:Image ID="artistImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/><asp:TextBox ID="tbArtist1" runat="server" Enabled="false"></asp:TextBox>
+        <br /><asp:Image ID="artistImg2" runat="server" ImageURL="~/img/user.jpg" Width="100" ImageAlign="Right"/><asp:TextBox ID="tbArtist2" runat="server" Enabled="false"></asp:TextBox>
+        <br /><asp:Image ID="artistImg3" runat="server" ImageURL="~/img/user.jpg" Width="100"/><asp:TextBox ID="tbArtist3" runat="server" Enabled="false"></asp:TextBox>
     </div>
     </form>
 </body>

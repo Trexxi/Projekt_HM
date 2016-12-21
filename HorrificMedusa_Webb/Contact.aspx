@@ -27,7 +27,9 @@
         </asp:Menu>
         <asp:Label ID="laRubrikKon" runat="server" Text="Kontakta Oss"></asp:Label><br />
         <asp:Image ID="MapImg1" runat="server" ImageURL="~/img/map.jpg" Width="600"/>
-        <asp:TextBox ID="TextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbContPho" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContAddr" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContEmail" runat="server" Enabled="false"></asp:TextBox>
     </div>
 
     </form>
