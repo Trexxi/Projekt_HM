@@ -76,4 +76,11 @@ public partial class ReservationPage : Page
     {
 
     }
+
+    protected void DayPilotCalendar1_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
+    {
+        dataACC acc = new dataACC();
+        
+        
+    }
 }

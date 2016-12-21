@@ -41,13 +41,19 @@
             BuisnessEndsHour="16"
             ScrollPositionHour="8"
             HeightSpec="BusinessHoursNoScroll"
+            EventClickHandling="PostBack"
+            OnEventClick="DayPilotCalendar1_EventClick"
             DataStartField="SchemeStartDate"
             DataEndField="SchemeEndDate"
             DataTextField ="InformationBox"
             DataValueField="SchemeID"
             style='top: 130px; left: -136px' 
             />
-
+        
+        <asp:TextBox ID="tb" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tb1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tb2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tb3" runat="server"></asp:TextBox>
         <asp:Button Text="Boka" OnClick="SubmitBtn_Click" runat="server" />
     </form>
 </body>

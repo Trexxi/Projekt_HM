@@ -21,6 +21,8 @@ public class dataACC
 
     public DataTable getScheme(int WeekNumber, int ArtistID)
     {
+        cSchemeReservation csr = new cSchemeReservation();
+
         DataTable dt = new DataTable();
 
         SqlConnection sqlcon = new SqlConnection(connstr);
@@ -49,4 +51,49 @@ public class dataACC
             sqlcon.Dispose();
         }
     }
+
+   /* public cSchemeReservation getDataOnScheme(int WeekNumber, int ArtistID)
+    {
+        cSchemeReservation csr = new cSchemeReservation();
+
+        DataTable dt = new DataTable();
+
+        SqlConnection sqlcon = new SqlConnection(connstr);
+
+        SqlCommand cmd = new SqlCommand("uspScheme", sqlcon);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        try
+        {
+            sqlcon.Open();
+            cmd.Parameters.AddWithValue("@WeekNumber", WeekNumber);
+            cmd.Parameters.AddWithValue("@Artist", ArtistID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+
+            {
+                while (dr.Read())
+                {
+                    csr.ArtistName= dr["ArtistName"].ToString();
+                    csr.InformationBox = dr["InformationBox"].ToString();
+                    csr.SchemeStartDate = dr [""]
+                    ;
+
+                }
+            }
+            return myUser;
+
+        }
+        catch
+        {
+
+        }
+        finally
+        {
+
+        }
+
+    }*/
 }
