@@ -52,7 +52,7 @@ public class dataACC
         }
     }
 
-   /* public cSchemeReservation getDataOnScheme(int WeekNumber, int ArtistID)
+    /*public cSchemeReservation getDataOnScheme(int WeekNumber, int ArtistID)
     {
         cSchemeReservation csr = new cSchemeReservation();
 
@@ -69,6 +69,8 @@ public class dataACC
             sqlcon.Open();
             cmd.Parameters.AddWithValue("@WeekNumber", WeekNumber);
             cmd.Parameters.AddWithValue("@Artist", ArtistID);
+            dt.Load(cmd.ExecuteReader());
+            return dt;
 
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -78,12 +80,11 @@ public class dataACC
                 {
                     csr.ArtistName= dr["ArtistName"].ToString();
                     csr.InformationBox = dr["InformationBox"].ToString();
-                    csr.SchemeStartDate = dr [""]
-                    ;
-
-                }
+                    csr.SchemeStartDate = Convert.ToDateTime(dr["SchemeStartDate"].ToString());
+                    csr.SchemeEndDate = Convert.ToDateTime(dr["SchemeEndDate"].ToString());
+                    }
             }
-            return myUser;
+            return csr;
 
         }
         catch
