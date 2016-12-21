@@ -79,8 +79,12 @@ public partial class ReservationPage : Page
 
     protected void DayPilotCalendar1_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
     {
-        dataACC acc = new dataACC();
-        
-        
+       cSchemeReservation scheme = new cSchemeReservation();
+        dataACC dacc = new dataACC();
+
+        scheme = dacc.getDataOnScheme(Convert.ToInt16(e.Id));
+        tb.Text = scheme.InformationBox.ToString();
+        tb1.Text = scheme.SchemeID.ToString();
+
     }
 }
