@@ -22,7 +22,7 @@
             </Items>
         </asp:Menu>
      
-                        <table>
+                        <table ID="Registry1">
                             <tr>
                                 <td align="left" colspan="2">Registrera ett nytt konto</td>
                             </tr>
@@ -130,9 +130,6 @@
                                     <asp:TextBox ID="tbConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="tbConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">Har du redan ett konto?</td>
                             </tr>                     
                             <tr>
                                 <td align="center" colspan="2" style="color:Red;">

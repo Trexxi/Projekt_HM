@@ -15,6 +15,7 @@ public partial class MyPage : System.Web.UI.Page
             if (Session.Count > 0)
             {
                 getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
+                getReservationInfo(Convert.ToInt16(Session["UserId"].ToString()));
             }
         }
     }
@@ -48,6 +49,14 @@ public partial class MyPage : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
+    protected void btnLogIn2_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
+    }
+
     private void getPersonalInfo(Int16 UserId)
     {
         cUser myUser = new cUser();
@@ -63,6 +72,37 @@ public partial class MyPage : System.Web.UI.Page
         btnLogIn.Visible = false;
         btnRegistry.Visible = false;
         btnLogOut.Visible = true;
+        lbLogInText.Visible = false;
+        btnLogIn2.Visible = false;
+        UserImg1.Visible = true;
+        tbInfo2.Visible = true;
+        tbInfo3.Visible = true;
+        tbInfo4.Visible = true;
+        tbInfo5.Visible = true;
+        tbInfo6.Visible = true;
+        tbInfo7.Visible = true;
     }
 
+    private void getReservationInfo(Int16 UserId)
+    {
+        cUser myUser = new cUser();
+        cDal2 dal = new cDal2();
+        myUser = dal.getUserReservation(UserId);
+        tbBokn1.Text = myUser.Meeting.ToString();
+        tbBokn2.Text = myUser.Day.ToString();
+        tbBokn3.Text = myUser.Date.ToString();
+        tbBokn4.Text = myUser.Month.ToString();
+        tbBokn5.Text = myUser.Starting.ToString();
+        tbBokn6.Text = myUser.Ending.ToString();
+        tbBokn7.Text = myUser.TattoArtist.ToString();
+
+        lbBokningsText.Visible = true;
+        tbBokn1.Visible = true;
+        tbBokn2.Visible = true;
+        tbBokn3.Visible = true;
+        tbBokn4.Visible = true;
+        tbBokn5.Visible = true;
+        tbBokn6.Visible = true;
+        tbBokn7.Visible = true;
+    }
 }

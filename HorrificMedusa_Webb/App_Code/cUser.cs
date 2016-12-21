@@ -23,6 +23,8 @@ public class cUser
 
     public string FirstName{ get; set; }
     public string LastName { get; set; }
+    public string Email { get; set; }
+    public string SSN { get; set; }
     public string PhoneNumber{ get; set; }
     public string County{ get; set; }
     public string Street { get; set; }
@@ -30,9 +32,9 @@ public class cUser
 
     public string Meeting { get; set; }
     public string TattoArtist { get; set; }
-    public DateTime Starting { get; set; }
-    public DateTime Ending { get; set; }
-    public DateTime Month { get; set; }
-    public DateTime Day { get; set; }
-    public DateTime Date { get; set; }
+    public string Starting { get; set; }
+    public string Ending { get; set; }
+    public string Month { get; set; }
+    public string Day { get; set; }
+    public string Date { get; set; }
 }

@@ -26,14 +26,25 @@
             </Items>
         </asp:Menu>
         <asp:Label ID="lbRubrik" runat="server" Text="Min Sida"></asp:Label><br />
-        <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/><br />
+        <asp:Label ID="lbLogInText" runat="server" Text="Logga in för att se din information och bokningar"></asp:Label><br />
+            <asp:Button ID="btnLogIn2" runat="server" Text="Logga In" OnClick="btnLogIn2_Click" /><br />
+        <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100" Visible="false"/><br />
         <asp:TextBox ID="tbInfo1" runat="server" Visible="false"></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo2" runat="server" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo3" runat="server" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo4" runat="server" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo5" runat="server" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo6" runat="server" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbInfo7" runat="server" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo2" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo3" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo4" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo5" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbInfo7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+
+        <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
+        <asp:TextBox ID="tbBokn1" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn2" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn3" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn4" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn5" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        <asp:TextBox ID="tbBokn7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
     </div>   
     </form>
 </body>
