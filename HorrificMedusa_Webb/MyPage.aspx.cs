@@ -9,14 +9,14 @@ public partial class MyPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        tbInfo1.Text = Session["UserId"].ToString();
 
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
-            getPersonalInfo(Convert.ToInt16(tbInfo1.Text));
+            if (Session.Count > 0)
+            {
+                getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
+            }
         }
-
-
     }
 
     protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
@@ -59,6 +59,10 @@ public partial class MyPage : System.Web.UI.Page
         tbInfo5.Text = myUser.County.ToString();
         tbInfo6.Text = myUser.Street.ToString();
         tbInfo7.Text = myUser.ZIP.ToString();
+
+        btnLogIn.Visible = false;
+        btnRegistry.Visible = false;
+        btnLogOut.Visible = true;
     }
 
 }

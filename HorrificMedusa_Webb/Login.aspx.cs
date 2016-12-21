@@ -29,11 +29,9 @@ public partial class Login : System.Web.UI.Page
         myResultUser = myDAL.Login(myUser);
         if (myResultUser.UserId > 0)
         {
-            
             Login1.UserName = myResultUser.UserId.ToString();
             Session.Add("UserId", myResultUser.UserId.ToString());
             Response.Redirect("MyPage.aspx");
-
         }
     }
 
