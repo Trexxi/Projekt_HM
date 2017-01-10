@@ -61,7 +61,7 @@ public partial class Registry : System.Web.UI.Page
         myUser.SSN = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("SSN")).Text;
         myUser.PhoneNumber = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("PhoneNumber")).Text;
         myUser.Street = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("Address")).Text;
-        myUser.ZIP = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("ZIP")).Text;
+        myUser.ZIP = Convert.ToInt16(((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("ZIP")).Text);
         myUser.County = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("County")).Text;
         myUser.Password = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("Password")).Text;
 
@@ -84,11 +84,11 @@ public partial class Registry : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@FirstName", myUser.FirstName);
         cmd.Parameters.AddWithValue("@LastName", myUser.LastName);
         cmd.Parameters.AddWithValue("@SSN", myUser.SSN);
-        cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
-        cmd.Parameters.AddWithValue("@Street", Street);
-        cmd.Parameters.AddWithValue("@ZIP", ZIP);
-        cmd.Parameters.AddWithValue("@County", County);
-        cmd.Parameters.AddWithValue("@Password", Password);
+        cmd.Parameters.AddWithValue("@PhoneNumber", myUser.PhoneNumber);
+        cmd.Parameters.AddWithValue("@Street", myUser.Street);
+        cmd.Parameters.AddWithValue("@ZIP", myUser.ZIP);
+        cmd.Parameters.AddWithValue("@County", myUser.County);
+        cmd.Parameters.AddWithValue("@Password", myUser.Password);
         // Execute my procedure and load the result to dr
         cmd.ExecuteReader();
 
