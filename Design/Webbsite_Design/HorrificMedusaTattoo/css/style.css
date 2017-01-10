@@ -19,11 +19,9 @@ nav {
 
 }
 nav a {
-    display: block;
     color: white;
-    text-align: center;
-    
     text-decoration: none;
+    font-family: 'Pathway Gothic One', sans-serif;
 }
 nav a:hover {
     background-color: #111;
