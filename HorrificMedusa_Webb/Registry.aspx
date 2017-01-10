@@ -21,16 +21,16 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-     
-                        <table ID="Registry1">
+        
+        <asp:Label ID="lbTextReg" runat="server" Text="Registrera ett nytt konto"></asp:Label>
+
+        <asp:CreateUserWizard ID="Registry1" runat="server" OnCreatedUser="Registry1_CreatedUser">
+            <WizardSteps>
+                <asp:CreateUserWizardStep runat="server">
+                    <ContentTemplate>
+                        <table>
                             <tr>
-                                <td align="left" colspan="2">Registrera ett nytt konto</td>
-                            </tr>
-                            <tr>
-                                <td align="left" colspan="1">Skapa ditt konto här:</td>
-                                <td align="center" colspan="1">
-                                    <asp:Image ID="Image1" runat="server" />
-                                </td>
+                                <td align="center" colspan="2">Skapa ditt konto här:</td>
                             </tr>
                             <tr>
                                 <td align="right">
@@ -41,13 +41,13 @@
                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="tbUserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
-                            <tr>
+                             <tr>
                                 <td align="right">
                                     <asp:Label ID="lblEmailLabel" runat="server">Ange e-post:</asp:Label>
                                 </td>
                                 <td>
                                     <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="tbEmail" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbEmail" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -119,7 +119,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -128,21 +128,25 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="tbConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="tbConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
-                            </tr>                     
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
+                                    <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="tbPassword" ControlToValidate="tbConfirmPassword" Display="Dynamic" ErrorMessage="De angivna lösenorden måste matcha" ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
+                                </td>
+                            </tr>
                             <tr>
                                 <td align="center" colspan="2" style="color:Red;">
                                     <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
                                 </td>
                             </tr>
-                            <tr>
-                                <td align="right" colspan="2">
-                                    <asp:Button ID="btnRegistryButton" runat="server" CommandName="Registry" OnClick="btnRegistryButton_Click" Text="Registrera" ValidationGroup="Registry" />
-                                </td>
-                                </tr>
                         </table>
-        <asp:Button ID="btnLogIn" runat="server" Text="Logga in på ett redan existerande konto" OnClick="btnLogIn_Click" />
+                    </ContentTemplate>
+                </asp:CreateUserWizardStep>
+                <asp:CompleteWizardStep runat="server" />
+            </WizardSteps>
+        </asp:CreateUserWizard>
     </div>
     </form>
 </body>
