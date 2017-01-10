@@ -1,0 +1,83 @@
+body {
+    display:block;
+    padding:0;
+    margin-left:auto;
+    margin-right: auto;
+    width:841px;
+
+}
+header {
+    background-image: url("../img/tates.jpg");
+    background-size: 100% 100% ;
+    background-repeat: no-repeat;
+    height: 179px;
+}
+nav {
+    border: solid 1px black;
+    height: 20px;
+}
+section{
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+#side-1 hr {
+    width:90%;
+}
+#side-1 p {
+    width: 91%;
+    padding-left: 21px
+}
+#side-1 h3 {
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+article {
+    margin-left: 10px;
+}
+
+
+#illu {
+    width:45%;
+    padding-left:122px;
+
+}
+footer {
+    text-align: center;
+}
+
+#one {
+    font-family: 'Abel', sans-serif;
+}
+#two {
+    font-family: 'Work Sans', sans-serif;
+}
+#three {
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+#four {
+    font-family: 'Quicksand', sans-serif;
+}
+#a{
+    font-family: 'Karla', sans-serif;
+}
+#b{
+    font-family: 'Acme', sans-serif;
+}
+#c{
+    font-family: 'Voltaire', sans-serif;
+}
+#d{
+    font-family: 'Kavivanar', cursive
+}
+.yes {
+    font-family: 'Work Sans', sans-serif;
+}
+.hellyeah {
+    font-family: 'Karla', sans-serif;
+}
+
+
