@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2857299f-a7fd-4473-8dc8-8416b61dd742" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="MedusaFontsTEST.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -221,7 +218,7 @@
       <option name="presentableId" value="Default" />
       <updated>1484055356327</updated>
       <workItem from="1484055357655" duration="2103000" />
-      <workItem from="1484058075529" duration="8460000" />
+      <workItem from="1484058075529" duration="8513000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1484070468154</created>
@@ -230,11 +227,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484070468154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Started with ideas for webpages">
+      <created>1484078842615</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484078842615</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10563000" />
+    <option name="totallyTimeSpent" value="10616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -271,7 +275,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing" />
+    <MESSAGE value="Started with ideas for webpages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started with ideas for webpages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
