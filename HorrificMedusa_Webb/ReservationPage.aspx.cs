@@ -53,7 +53,9 @@ public partial class ReservationPage : System.Web.UI.Page
         cDAL dal = new cDAL();
         myUser = dal.PersonalInformation(UserId);
 
-        btnLogIn.Visible = false;
+        if (myUser.Date != null)
+
+            btnLogIn.Visible = false;
         btnRegistry.Visible = false;
         btnLogOut.Visible = true;
     }
