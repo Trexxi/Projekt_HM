@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-public partial class ReservationPage : Page
+public partial class ReservationPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -39,6 +39,25 @@ public partial class ReservationPage : Page
         Response.Redirect("Registry.aspx");
     }
 
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Default.aspx");
+    }
+
+    private void getPersonalInfo(Int16 UserId)
+    {
+        cUser myUser = new cUser();
+        cDAL dal = new cDAL();
+        myUser = dal.PersonalInformation(UserId);
+
+        btnLogIn.Visible = false;
+        btnRegistry.Visible = false;
+        btnLogOut.Visible = true;
+    }
+
     protected void ddlArtist_SelectedIndexChanged(object sender, EventArgs e)
     {
         DayPilotCalendar1.StartDate = DateTimeExtensions.FirstDateOfWeekISO8601(2016, 46);
@@ -50,6 +69,7 @@ public partial class ReservationPage : Page
     {
         return int.Parse(ddlArtist.SelectedValue);
     }
+
     private DataTable calendarEvents(DateTime start, int week)
     {
         dataACC dac = new dataACC();
@@ -65,15 +85,6 @@ public partial class ReservationPage : Page
         DayPilotCalendar1.StartDate = DateTimeExtensions.FirstDateOfWeekISO8601(2016, 46);
         DayPilotCalendar1.DataSource = calendarEvents(DayPilotCalendar1.StartDate, 46 + 1);
         DayPilotCalendar1.DataBind();
-    }
-
-    protected void SubmitBtn_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btnLogOut_Click(object sender, EventArgs e)
-    {
 
     }
 
@@ -85,6 +96,11 @@ public partial class ReservationPage : Page
         scheme = dacc.getDataOnScheme(Convert.ToInt16(e.Id));
         tb.Text = scheme.InformationBox.ToString();
         tb1.Text = scheme.SchemeID.ToString();
+
+    }
+
+    protected void SubmitBtn_Click(object sender, EventArgs e)
+    {
 
     }
 }

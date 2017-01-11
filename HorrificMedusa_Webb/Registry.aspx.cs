@@ -40,14 +40,6 @@ public partial class Registry : System.Web.UI.Page
         */
     }
 
-    protected void btnLogIn_Click(object sender, EventArgs e)
-    {
-        Session.Clear();
-        Session.RemoveAll();
-        Session.Abandon();
-        Response.Redirect("Login.aspx");
-    }
-
     protected void Registry1_CreatedUser(object sender, EventArgs e)
     {
         cUser myUser = new cUser();
@@ -56,13 +48,14 @@ public partial class Registry : System.Web.UI.Page
         Guid newUserId = (Guid)newUser.ProviderUserKey;
 
         myUser.UserName = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("UserName")).Text;
-        myUser.FirstName = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("FirstName")).Text;
-        myUser.LastName = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("LastName")).Text;
-        myUser.SSN = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("SSN")).Text;
-        myUser.PhoneNumber = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("PhoneNumber")).Text;
-        myUser.Street = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("Address")).Text;
-        myUser.ZIP = Convert.ToInt16(((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("ZIP")).Text);
-        myUser.County = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("County")).Text;
+        myUser.Email = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("Email")).Text;
+        myUser.FirstName = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbFirstName")).Text;
+        myUser.LastName = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbLastName")).Text;
+        myUser.SSN = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbSSN")).Text;
+        myUser.PhoneNumber = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbPhoneNumber")).Text;
+        myUser.Street = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbAddress")).Text;
+        myUser.ZIP = Convert.ToInt16(((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbZIP")).Text);
+        myUser.County = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("tbCounty")).Text;
         myUser.Password = ((TextBox)Registry1.CreateUserStep.ContentTemplateContainer.FindControl("Password")).Text;
 
         string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
@@ -92,6 +85,16 @@ public partial class Registry : System.Web.UI.Page
         // Execute my procedure and load the result to dr
         cmd.ExecuteReader();
 
+            cUser myResultUser = new cUser();
+            DAL myDAL = new DAL();
+
+            myResultUser = myDAL.Login(myUser);
+            if (myResultUser.UserId > 0)
+            {
+                Session.Add("UserId", myResultUser.UserId.ToString());
+                Response.Redirect("MyPage.aspx");
+            }
+
         }
         catch
         {
@@ -105,5 +108,14 @@ public partial class Registry : System.Web.UI.Page
             conn.Close();
             conn.Dispose();
         }
+
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.RemoveAll();
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
     }
 }

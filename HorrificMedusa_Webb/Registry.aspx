@@ -165,6 +165,7 @@
                 <asp:CompleteWizardStep runat="server" />
             </WizardSteps>
         </asp:CreateUserWizard>
+        <asp:Button ID="btnLogin" runat="server" Text="Logga in på redan existerande konto" OnClick="btnLogin_Click" />
     </div>
     </form>
 </body>
