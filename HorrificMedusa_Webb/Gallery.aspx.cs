@@ -9,7 +9,6 @@ public partial class Gallery : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //tbInfo1.Text = Session["UserId"].ToString();
 
         if (!IsPostBack)
         {
@@ -17,8 +16,6 @@ public partial class Gallery : System.Web.UI.Page
             {
                 getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
             }
-                
-            //getPersonalInfo(Convert.ToInt16(tbInfo1.Text));
 
         }
     }

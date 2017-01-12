@@ -14,12 +14,14 @@
         <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click" />
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click" />
         <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" Visible="false"/>
+        
         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
+
         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
             <Items>
-                <asp:MenuItem NavigateUrl="Default.aspx" Text="Start" Value="Start"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="Default.aspx" Text="Hem" Value="Hem"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="Gallery.aspx" Text="Galleri" Value="Galleri"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="Artists.aspx" Text="Tattuerare" Value="Tattuerare"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="ReservationPage.aspx" Text="Boka" Value="Boka"></asp:MenuItem>
@@ -27,8 +29,12 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-    </div>
-        <asp:Label ID="lbRubrikBoka" runat="server" Text="Boka din tid här"></asp:Label><br />
+
+        <h1>Boka din tid här</h1>
+        <p>Här syns tattuerarnas scheman och vilka tider som går boka. </p>
+        <p> Det går boka mötestid sjäv, men tattueringstid bokas av tattueraren. </p>
+
+        <br />
         <asp:DropDownList ID="ddlArtist" runat="server" AppendDataBoundItems="true"
             OnSelectedIndexChanged="ddlArtist_SelectedIndexChanged" AutoPostBack="True">
             <asp:ListItem Text="Välj Tattuerare" Value="0"></asp:ListItem>
@@ -50,12 +56,14 @@
             style='top: 130px; left: -136px' 
             />
         
-        <asp:TextBox ID="tb" runat="server"></asp:TextBox>
-        <asp:TextBox ID="tb1" runat="server"></asp:TextBox>
-        <asp:TextBox ID="tb2" runat="server"></asp:TextBox>
-        <asp:TextBox ID="tb3" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tb" runat="server" Visible="false"></asp:TextBox>
+        <asp:TextBox ID="tb1" runat="server" Visible="false"></asp:TextBox>
+        <asp:TextBox ID="tb2" runat="server" Visible="false"></asp:TextBox>
+        <asp:TextBox ID="tb3" runat="server" Visible="false"></asp:TextBox>
         <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
-        <asp:Button Text="Boka" OnClick="SubmitBtn_Click" runat="server" />
+        <asp:Button ID="btnSubmit" Text="Boka" OnClick="btnSubmit_Click" runat="server" Visible="false" />
+
+    </div>
     </form>
 </body>
 </html>

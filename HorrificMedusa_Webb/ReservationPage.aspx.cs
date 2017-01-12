@@ -15,6 +15,11 @@ public partial class ReservationPage : System.Web.UI.Page
         if (!IsPostBack)
         {
             FillScheme();
+
+            if (Session.Count > 0)
+            {
+                getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
+            }
         }
     }
 
@@ -53,15 +58,14 @@ public partial class ReservationPage : System.Web.UI.Page
         cDAL dal = new cDAL();
         myUser = dal.PersonalInformation(UserId);
 
-        if (myUser.UserId > 0)
-        {
-            btnLogIn.Visible = false;
-            btnRegistry.Visible = false;
-            btnLogOut.Visible = true;
-
-        }
-
-            
+        btnLogIn.Visible = false;
+        btnRegistry.Visible = false;
+        btnLogOut.Visible = true;
+        tb.Visible = true;
+        tb1.Visible = true;
+        tb2.Visible = true;
+        tb3.Visible = true;
+        btnSubmit.Visible = true;
     }
 
     protected void ddlArtist_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,8 +109,8 @@ public partial class ReservationPage : System.Web.UI.Page
 
     }
 
-    protected void SubmitBtn_Click(object sender, EventArgs e)
+    protected void btnSubmit_Click(object sender, EventArgs e)
     {
-
+        
     }
 }
