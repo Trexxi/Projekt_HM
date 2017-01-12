@@ -6,8 +6,19 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Abel|Acme|Karla|Kavivanar|Pathway+Gothic+One|Quicksand|
     Voltaire|Work+Sans" rel="stylesheet">
+
     <link rel="shortcut icon" type="image/ico" href="Horrific_Medusa.ico"/>
 
+    <script>
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(51.5, -0.12),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
 </head>
 <body>
 <header></header>
@@ -28,8 +39,10 @@
         <h3 class="yes">Behöver du kontakta oss? Bara gör det!<br>
        </h3>
 <hr>
+        <div id="map" style="width:100%;height:500px"></div>
     </article>
     </section>
 <footer>BS studio</footer>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 </body>
 </html>
