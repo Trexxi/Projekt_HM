@@ -1,0 +1,157 @@
+.knappjvel {
+    border: transparent;
+    height: 34px;
+    background-color: transparent;
+    font-family: 'Quicksand', sans-serif;
+}
+.knappjvel:focus{
+    outline:transparent;
+}
+.knappjvelx {
+    border: transparent;
+    height: 34px;
+    background-color: transparent;
+    font-family: 'Quicksand', sans-serif;
+}
+.knappjvelx:focus{
+    outline:transparent;
+}
+.knappjvelxx {
+    border: transparent;
+    height: 34px;
+    background-color: transparent;
+    font-family: 'Quicksand', sans-serif;
+}
+.knappjvelxx:focus{
+    outline:transparent;
+}
+.fa-user-circle-o:hover {
+    color:#01baef;
+}
+#knappjvltext{
+    font-size: xx-large;
+}
+#knappjvltext2{
+    font-size: xx-large;
+}
+#knappjvltext3{
+    font-size: xx-large;
+}
+.fa-pencil-square:hover {
+    color:#01baef;
+}
+
+.fa-power-off:hover {
+    color:red;
+}
+
+.knappjvel::before,
+.knappjvel::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.knappjvel::before {
+    margin-right: 1px;
+    content: '';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+    color: #01baef;
+}
+
+.knappjvel::after {
+    margin-left: 8px;
+    content: 'Logga in';
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+    color: black;
+}
+
+.knappjvel:hover::before,
+.knappjvel:hover::after,
+.knappjvel:focus::before,
+.knappjvel:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
+
+.knappjvelx::before,
+.knappjvelx::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.knappjvelx::before {
+    margin-right: 1px;
+    content: '';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+    color: #01baef;
+}
+
+.knappjvelx::after {
+    margin-left: 8px;
+    content: 'Registrera dig';
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+    color: black;
+}
+
+.knappjvelx:hover::before,
+.knappjvelx:hover::after,
+.knappjvelx:focus::before,
+.knappjvelx:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
+
+.knappjvelxx::before,
+.knappjvelxx::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.knappjvelxx::before {
+    margin-right: 1px;
+    content: '';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+    color: #01baef;
+}
+
+.knappjvelxx::after {
+    margin-left: 8px;
+    content: 'Logga ut';
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+    color: black;
+}
+
+.knappjvelxx:hover::before,
+.knappjvelxx:hover::after,
+.knappjvelxx:focus::before,
+.knappjvelxx:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
