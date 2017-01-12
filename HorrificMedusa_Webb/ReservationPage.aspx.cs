@@ -65,6 +65,7 @@ public partial class ReservationPage : System.Web.UI.Page
         tb1.Visible = true;
         tb2.Visible = true;
         tb3.Visible = true;
+        tb4.Visible = true;
         btnSubmit.Visible = true;
     }
 
@@ -100,12 +101,20 @@ public partial class ReservationPage : System.Web.UI.Page
 
     protected void DayPilotCalendar1_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
     {
-       cSchemeReservation scheme = new cSchemeReservation();
+        cSchemeReservation scheme = new cSchemeReservation();
         dataACC dacc = new dataACC();
 
         scheme = dacc.getDataOnScheme(Convert.ToInt16(e.Id));
         tb.Text = scheme.InformationBox.ToString();
-        tb1.Text = scheme.SchemeID.ToString();
+        tb1.Text = scheme.SchemeStartDate.ToString();
+        tb2.Text = scheme.SchemeEndDate.ToString();
+        tb3.Text = scheme.ArtistName.ToString();
+        tb4.Text = scheme.SchemeID.ToString();
+
+        if(scheme.ReservationID.ToString() != null)
+        {
+            
+        }
 
     }
 

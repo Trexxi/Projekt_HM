@@ -15,6 +15,7 @@ public class cSchemeReservation
         //
     }
     public Int16 SchemeID { get; set; }
+    public Int16 ReservationID { get; set; }
 
     public string ArtistName { get; set; }
     public string InformationBox { get; set; }

@@ -56,11 +56,11 @@
             style='top: 130px; left: -136px' 
             />
         
-        <asp:TextBox ID="tb" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="tb1" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="tb2" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="tb3" runat="server" Visible="false"></asp:TextBox>
-        <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
+        <asp:TextBox ID="tb" runat="server" Visible="false" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tb1" runat="server" Visible="false" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tb2" runat="server" Visible="false" Enabled="false" ></asp:TextBox>
+        <asp:TextBox ID="tb3" runat="server" Visible="false" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tb4" runat="server" Visible="false"></asp:TextBox>
         <asp:Button ID="btnSubmit" Text="Boka" OnClick="btnSubmit_Click" runat="server" Visible="false" />
 
     </div>

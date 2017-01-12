@@ -14,7 +14,7 @@
         <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" Visible="false" />
 
         <br />
-        <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" m/>
+        <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
 
         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
