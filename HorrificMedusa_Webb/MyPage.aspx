@@ -12,12 +12,14 @@
         <asp:Button ID="btnLogIn" runat="server" Text="Logga In" OnClick="btnLogIn_Click" />
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click" />
         <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" Visible="false" />
-        <br />
+       
+         <br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
+
         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
             <Items>
-                <asp:MenuItem NavigateUrl="Default.aspx" Text="Start" Value="Start"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="Default.aspx" Text="Hem" Value="Hem"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="Gallery.aspx" Text="Galleri" Value="Galleri"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="Artists.aspx" Text="Tattuerare" Value="Tattuerare"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="ReservationPage.aspx" Text="Boka" Value="Boka"></asp:MenuItem>
@@ -25,7 +27,9 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:Label ID="lbRubrik" runat="server" Text="Min Sida"></asp:Label><br />
+
+        <h1>Min Sida</h1>
+        <h3>Logga in för att se din information och bokningar</h3>
         <asp:Label ID="lbLogInText" runat="server" Text="Logga in för att se din information och bokningar"></asp:Label><br />
             <asp:Button ID="btnLogIn2" runat="server" Text="Logga In" OnClick="btnLogIn2_Click" /><br />
         <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100" Visible="false"/><br />
