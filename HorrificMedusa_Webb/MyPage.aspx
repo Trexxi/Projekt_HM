@@ -29,7 +29,7 @@
         </asp:Menu>
 
         <h1>Min Sida</h1>
-        <h3>Logga in för att se din information och bokningar</h3>
+        
         <asp:Label ID="lbLogInText" runat="server" Text="Logga in för att se din information och bokningar"></asp:Label><br />
             <asp:Button ID="btnLogIn2" runat="server" Text="Logga In" OnClick="btnLogIn2_Click" /><br />
         <asp:Image ID="UserImg1" runat="server" ImageURL="~/img/user.jpg" Width="100" Visible="false"/><br />
