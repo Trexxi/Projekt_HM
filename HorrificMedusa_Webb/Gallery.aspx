@@ -13,7 +13,6 @@
         <asp:Button ID="btnRegistry" runat="server" Text="Registrera" OnClick="btnRegistry_Click" />
         <asp:Button ID="btnLogOut" runat="server" Text="Logga Ut" OnClick="btnLogOut_Click" Visible="false" />
         <br />
-        <asp:TextBox ID="tbInfo1" runat="server" Visible="false"></asp:TextBox><br />
         <asp:Image ID="HeaderImg" runat="server" ImageURL="~/img/headerimg2.jpg" />
         <br />
         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">

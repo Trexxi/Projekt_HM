@@ -25,8 +25,7 @@
                 <asp:MenuItem NavigateUrl="MyPage.aspx" Text="Min Sida" Value="Min Sida"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:Label ID="lbRubrikHem" runat="server" Text="Horrific Medusa"></asp:Label><br />
-        <asp:Label ID="lbTextHem" runat="server" Text="En tattueringsstudio för alla"></asp:Label><br />
+        <h2>HEHEHHE</h2>
         <asp:Image ID="PageImg1" runat="server" ImageURL="~/img/img1.jpg" Width="400px"/>
         <asp:Image ID="PageImg2" runat="server" ImageURL="~/img/img2.jpg" Width="400px"/>
     </div>
