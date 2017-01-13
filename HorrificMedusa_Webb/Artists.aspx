@@ -30,10 +30,16 @@
 
         <h1>Våra Tattuerare</h1>
         <asp:Image ID="artistImg1" runat="server" ImageURL="~/img/user.jpg" Width="100"/><asp:TextBox ID="tbArtist1" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist11" runat="server" Enabled="false"></asp:TextBox><asp:TextBox ID="tbArtist111" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist1111" runat="server" Enabled="false"></asp:TextBox>
         <br />
         <asp:Image ID="artistImg2" runat="server" ImageURL="~/img/user.jpg" Width="100" ImageAlign="Right"/><asp:TextBox ID="tbArtist2" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist22" runat="server" Enabled="false"></asp:TextBox><asp:TextBox ID="tbArtist222" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist2222" runat="server" Enabled="false"></asp:TextBox>
         <br />
         <asp:Image ID="artistImg3" runat="server" ImageURL="~/img/user.jpg" Width="100"/><asp:TextBox ID="tbArtist3" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist33" runat="server" Enabled="false"></asp:TextBox><asp:TextBox ID="tbArtist333" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="tbArtist3333" runat="server" Enabled="false"></asp:TextBox>
 
     </div>
     </form>

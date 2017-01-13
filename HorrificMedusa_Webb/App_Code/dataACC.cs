@@ -81,9 +81,7 @@ public class dataACC
                     csr.SchemeEndDate = Convert.ToDateTime(dr["SchemeEndDate"].ToString());
                     csr.InformationBox = dr["InformationBox"].ToString();
                     csr.ReservationID = Convert.ToInt16(dr["ReservationID"]);
-                    
-                   
-
+                    csr.TimeType = Convert.ToInt16(dr["TimeType"]);
                 }
             }
             return csr;

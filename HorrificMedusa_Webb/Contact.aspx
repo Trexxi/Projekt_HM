@@ -30,9 +30,11 @@
 
         <h1>Kontakta Oss</h1>
         <asp:Image ID="MapImg1" runat="server" ImageURL="~/img/map.jpg" Width="600"/>
-        <asp:TextBox ID="tbContPho" runat="server" Enabled="false"></asp:TextBox>
-        <asp:TextBox ID="tbContAddr" runat="server" Enabled="false"></asp:TextBox>
-        <asp:TextBox ID="tbContEmail" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContact1" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContact2" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContact3" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContact4" runat="server" Enabled="false"></asp:TextBox>
+        <asp:TextBox ID="tbContact5" runat="server" Enabled="false"></asp:TextBox>
     
     </div>
     </form>

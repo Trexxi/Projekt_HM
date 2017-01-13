@@ -14,6 +14,9 @@ public partial class Contact : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+
+            getContactInformation();
+
             if (Session.Count > 0)
             {
                 getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
@@ -24,23 +27,6 @@ public partial class Contact : System.Web.UI.Page
     protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
     {
 
-    }
-    protected void getAddress()
-    {
-        string connstr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
-
-        DataTable dt = new DataTable();
-        string query = "SELECT Street, ZIP, County FROM dbo.[Address] WHERE AddressID = 5";
-
-        SqlConnection sqlcon = new SqlConnection(connstr);
-        SqlCommand cmd = new SqlCommand(query, sqlcon);
-        sqlcon.Open();
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(dt);
-        sqlcon.Close();
-        sqlcon.Dispose();
-  
     }
 
     protected void btnLogIn_Click(object sender, EventArgs e)
@@ -76,5 +62,18 @@ public partial class Contact : System.Web.UI.Page
         btnLogIn.Visible = false;
         btnRegistry.Visible = false;
         btnLogOut.Visible = true;
+    }
+
+    private void getContactInformation()
+    {
+        cUser myUser = new cUser();
+        cDAL5 dal = new cDAL5();
+        myUser = dal.getContactInfo();
+
+        tbContact1.Text = myUser.PhoneNumber.ToString();
+        tbContact2.Text = myUser.Street.ToString();
+        tbContact3.Text = myUser.ZIP.ToString();
+        tbContact4.Text = myUser.County.ToString();
+        tbContact5.Text = myUser.Email.ToString();
     }
 }

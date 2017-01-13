@@ -17,6 +17,7 @@ public class cUser
 
 
     public Int16 UserId { get; set; }
+    public Int16 TattoNr { get; set; }
 
     public string UserName { get; set; }
     public string Password { get; set; }

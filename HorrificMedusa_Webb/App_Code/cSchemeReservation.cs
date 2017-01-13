@@ -18,6 +18,7 @@ public class cSchemeReservation
     public Int16 ReservationID { get; set; }
 
     public string ArtistName { get; set; }
+    public Int16 TimeType { get; set; }
     public string InformationBox { get; set; }
     public DateTime SchemeStartDate { get; set; }
     public DateTime SchemeEndDate { get; set; }
