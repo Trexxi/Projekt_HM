@@ -1,4 +1,5 @@
 ﻿using DayPilot.Web.Ui;
+using DayPilot.Web.Ui.Events.Calendar;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,6 +22,7 @@ public partial class ReservationPage : System.Web.UI.Page
                 getPersonalInfo(Convert.ToInt16(Session["UserId"].ToString()));
             }
         }
+
     }
 
     protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
@@ -66,6 +68,7 @@ public partial class ReservationPage : System.Web.UI.Page
         tb2.Visible = true;
         tb3.Visible = true;
         tb4.Visible = true;
+        tb5.Visible = true;
         btnSubmit.Visible = true;
     }
 
@@ -74,6 +77,7 @@ public partial class ReservationPage : System.Web.UI.Page
         DayPilotCalendar1.StartDate = DateTimeExtensions.FirstDateOfWeekISO8601(2016, 46);
         DayPilotCalendar1.DataSource = calendarEvents(DayPilotCalendar1.StartDate, 46 + 1);
         DayPilotCalendar1.DataBind();
+
     }
    
     private int artistBoxWowSuchWOW()
@@ -110,13 +114,28 @@ public partial class ReservationPage : System.Web.UI.Page
         tb2.Text = scheme.SchemeEndDate.ToString();
         tb3.Text = scheme.ArtistName.ToString();
         tb4.Text = scheme.SchemeID.ToString();
-
-        if(scheme.ReservationID.ToString() != null)
-        {
-            
-        }
+        tb5.Text = scheme.ReservationID.ToString();
 
     }
+
+    protected void DayPilotCalendar1_BeforeEventRender(object sender, BeforeEventRenderEventArgs e)
+    {
+        cSchemeReservation scheme = new cSchemeReservation();
+        dataACC dacc = new dataACC();
+
+        if (scheme.ReservationID != 0)
+        {
+            e.DurationBarColor = "green";
+        }
+        else if(scheme.ReservationID == 8)
+        {
+            e.DurationBarColor = "yellow";
+        }
+        else
+        {
+            e.DurationBarColor = "gray";
+        }
+    } 
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {

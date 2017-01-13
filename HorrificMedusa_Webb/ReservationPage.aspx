@@ -48,11 +48,13 @@
             ScrollPositionHour="8"
             HeightSpec="BusinessHoursNoScroll"
             EventClickHandling="PostBack"
+            OnBeforeEventRender="DayPilotCalendar1_BeforeEventRender"
             OnEventClick="DayPilotCalendar1_EventClick"
             DataStartField="SchemeStartDate"
             DataEndField="SchemeEndDate"
             DataTextField ="InformationBox"
             DataValueField="SchemeID"
+            DataField="ReservationID"
             style='top: 130px; left: -136px' 
             />
         
@@ -61,6 +63,7 @@
         <asp:TextBox ID="tb2" runat="server" Visible="false" Enabled="false" ></asp:TextBox>
         <asp:TextBox ID="tb3" runat="server" Visible="false" Enabled="false"></asp:TextBox>
         <asp:TextBox ID="tb4" runat="server" Visible="false"></asp:TextBox>
+        <asp:TextBox ID="tb5" runat="server" Visible="false"></asp:TextBox>
         <asp:Button ID="btnSubmit" Text="Boka" OnClick="btnSubmit_Click" runat="server" Visible="false" />
 
     </div>

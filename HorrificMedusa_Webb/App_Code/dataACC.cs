@@ -81,6 +81,15 @@ public class dataACC
                     csr.SchemeEndDate = Convert.ToDateTime(dr["SchemeEndDate"].ToString());
                     csr.InformationBox = dr["InformationBox"].ToString();
 
+                    if(dr["ReservationID"] == null)
+                    {
+                        csr.ReservationID = 0;
+                    }
+                    else
+                    {
+                        csr.ReservationID = Convert.ToInt16(dr["ReservationID"]);
+                    }
+                   
 
                 }
             }
