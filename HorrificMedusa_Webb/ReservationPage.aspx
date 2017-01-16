@@ -32,7 +32,7 @@
 
         <h1>Boka din tid här</h1>
         <p>Här syns tattuerarnas scheman och vilka tider som går boka. </p>
-        <p> Det går boka mötestid sjäv, men tattueringstid bokas av tattueraren. </p>
+        <p> Det går att boka mötestid sjäv, men tattueringstid bokas av tattueraren. </p>
 
         <br />
         <asp:DropDownList ID="ddlArtist" runat="server" AppendDataBoundItems="true"
@@ -62,9 +62,6 @@
         <asp:TextBox ID="tb1" runat="server" Visible="false" Enabled="false"></asp:TextBox>
         <asp:TextBox ID="tb2" runat="server" Visible="false" Enabled="false" ></asp:TextBox>
         <asp:TextBox ID="tb3" runat="server" Visible="false" Enabled="false"></asp:TextBox>
-        <asp:TextBox ID="tb4" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="tb5" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="tb6" runat="server" Visible="false"></asp:TextBox>
         <asp:Button ID="btnSubmit" Text="Boka" OnClick="btnSubmit_Click" runat="server" Visible="false" />
 
     </div>
