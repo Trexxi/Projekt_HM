@@ -67,9 +67,6 @@ public partial class ReservationPage : System.Web.UI.Page
         tb1.Visible = true;
         tb2.Visible = true;
         tb3.Visible = true;
-        tb4.Visible = true;
-        tb5.Visible = true;
-        tb6.Visible = true;
         btnSubmit.Visible = true;
     }
 
@@ -114,9 +111,19 @@ public partial class ReservationPage : System.Web.UI.Page
         tb1.Text = scheme.SchemeStartDate.ToString();
         tb2.Text = scheme.SchemeEndDate.ToString();
         tb3.Text = scheme.ArtistName.ToString();
-        tb4.Text = scheme.SchemeID.ToString();
-        tb5.Text = scheme.ReservationID.ToString();
-        tb6.Text = scheme.TimeType.ToString();
+
+        if (scheme.ReservationID != 0)
+        {
+            btnSubmit.Enabled = false;
+        }
+        else if(scheme.TimeType == 2)
+        {
+            btnSubmit.Enabled = false;
+        }
+        else
+        {
+            btnSubmit.Enabled = true;
+        }
 
     }
 
@@ -125,29 +132,16 @@ public partial class ReservationPage : System.Web.UI.Page
         cSchemeReservation scheme = new cSchemeReservation();
         dataACC dacc = new dataACC();
 
-        if(scheme.TimeType == 2 || scheme.TimeType == 3)
+        /* if(scheme.TimeType == 2 || scheme.TimeType == 3)
         {
             e.EventClickEnabled = false;
-        }
+        } */
 
-        /*if (scheme.ReservationID == 8)
-        {
-            e.DurationBarColor = "yellow";
-        }
-
-        else if (scheme.ReservationID != 0)
-        {
             e.DurationBarColor = "green";
-        }
-        
-        else
-        {
-            e.DurationBarColor = "gray";
-        }*/
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        
+      
     }
 }
