@@ -27,7 +27,7 @@ public class cDAL6
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
-        SqlCommand cmd = new SqlCommand("uspRegistry", conn);
+        SqlCommand cmd = new SqlCommand("uspReservation", conn);
         // Type of commad I want to execute
         cmd.CommandType = CommandType.StoredProcedure;
         try
@@ -36,15 +36,7 @@ public class cDAL6
             conn.Open();
             // Insert the Parameter to the procedure
             cmd.Parameters.AddWithValue("@UserName", myUser.UserName);
-            cmd.Parameters.AddWithValue("@Email", myUser.Email);
-            cmd.Parameters.AddWithValue("@FirstName", myUser.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", myUser.LastName);
-            cmd.Parameters.AddWithValue("@SSN", myUser.SSN);
-            cmd.Parameters.AddWithValue("@PhoneNumber", myUser.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Street", myUser.Street);
-            cmd.Parameters.AddWithValue("@ZIP", myUser.ZIP);
-            cmd.Parameters.AddWithValue("@County", myUser.County);
-            cmd.Parameters.AddWithValue("@Password", myUser.Password);
+            
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)

@@ -132,11 +132,6 @@ public partial class ReservationPage : System.Web.UI.Page
         cSchemeReservation scheme = new cSchemeReservation();
         dataACC dacc = new dataACC();
 
-        /* if(scheme.TimeType == 2 || scheme.TimeType == 3)
-        {
-            e.EventClickEnabled = false;
-        } */
-
             e.DurationBarColor = "green";
     }
 
