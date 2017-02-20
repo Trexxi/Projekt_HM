@@ -40,11 +40,11 @@ public class cDAL6
             cmd.Parameters.AddWithValue("@FirstName", myUser.FirstName);
             cmd.Parameters.AddWithValue("@LastName", myUser.LastName);
             cmd.Parameters.AddWithValue("@SSN", myUser.SSN);
-            cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
-            cmd.Parameters.AddWithValue("@Street", Street);
-            cmd.Parameters.AddWithValue("@ZIP", ZIP);
-            cmd.Parameters.AddWithValue("@County", County);
-            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@PhoneNumber", myUser.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Street", myUser.Street);
+            cmd.Parameters.AddWithValue("@ZIP", myUser.ZIP);
+            cmd.Parameters.AddWithValue("@County", myUser.County);
+            cmd.Parameters.AddWithValue("@Password", myUser.Password);
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
