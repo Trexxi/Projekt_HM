@@ -71,4 +71,41 @@ public class cDal2
             conn.Dispose();
         }
     }
+
+
+    public DataTable getUserReservation2(Int16 UserId)
+    {
+        DataTable dt = new DataTable();
+        // New object
+        cUser myUser = new cUser();
+        // Create a connection
+        SqlConnection conn = new SqlConnection(connStr);
+        // Name of the Procedure I want to call
+        SqlCommand cmd = new SqlCommand("uspUserReservation", conn);
+        // Type of commad I want to execute
+        cmd.CommandType = CommandType.StoredProcedure;
+        try
+        {
+            // Open the connection to the database
+            conn.Open();
+            // Insert the Parameter to the procedure
+            cmd.Parameters.AddWithValue("@UserID", UserId);
+            // Execute my procedure and load the result to dr
+            dt.Load(cmd.ExecuteReader());
+            return dt;
+        }
+        catch
+        {
+            // If error
+            throw;
+        }
+        finally
+        {
+            // Close and dispose all connections to the databse
+            cmd.Dispose();
+            conn.Close();
+            conn.Dispose();
+        }
+    }
+
 }

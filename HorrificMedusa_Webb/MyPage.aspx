@@ -40,6 +40,16 @@
         <asp:TextBox ID="tbInfo5" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:TextBox ID="tbInfo6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:TextBox ID="tbInfo7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        
+        
+        <asp:Repeater ID="repBokningar" runat="server">
+
+            <ItemTemplate>
+                <p><%# Eval("Day") %></p>
+            </ItemTemplate>
+
+        </asp:Repeater>
+
 
         <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
         <asp:TextBox ID="tbBokn1" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />

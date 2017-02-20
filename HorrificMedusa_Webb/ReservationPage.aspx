@@ -63,6 +63,7 @@
         <asp:TextBox ID="tb2" runat="server" Visible="false" Enabled="false" ></asp:TextBox>
         <asp:TextBox ID="tb3" runat="server" Visible="false" Enabled="false"></asp:TextBox>
         <asp:Button ID="btnSubmit" Text="Boka" OnClick="btnSubmit_Click" runat="server" Visible="false" />
+        <asp:TextBox ID="tbSchemaId" runat="server" Visible="false" Enabled="false"></asp:TextBox>
 
     </div>
     </form>

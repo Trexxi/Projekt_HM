@@ -20,10 +20,12 @@ public class cDAL6
 
     string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
 
-    public cUser makeReservation()
+   // public cUser makeReservation()
+   public Int16 makeReservation(Int16 iUserId, Int16 iSchemaId)
     {
+        Int16 iResultat = 0;
         // New object
-        cUser myUser = new cUser();
+        //cUser myUser = new cUser();
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
@@ -35,8 +37,9 @@ public class cDAL6
             // Open the connection to the database
             conn.Open();
             // Insert the Parameter to the procedure
-            cmd.Parameters.AddWithValue("@UserName", myUser.UserName);
-            
+            cmd.Parameters.AddWithValue("@UserID", iUserId);
+            cmd.Parameters.AddWithValue("@ScehmaID", iSchemaId);
+
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -44,10 +47,11 @@ public class cDAL6
             {
                 while (dr.Read())
                 {
-                    myUser.UserId = Convert.ToInt16(dr["UserID"].ToString());
+                    //myUser.UserId = Convert.ToInt16(dr["Resultat"].ToString());
+                    iResultat = Convert.ToInt16(dr["ReservationID"]);
                 }
             }
-            return myUser;
+            return iResultat;
         }
         catch
         {

@@ -85,13 +85,16 @@ public partial class MyPage : System.Web.UI.Page
 
     private void getReservationInfo(Int16 UserId)
     {
-        cUser myUser = new cUser();
-        cDal2 dal = new cDal2();
-        myUser = dal.getUserReservation(UserId);
+        //cUser myUser = new cUser();
+        cDal2 dReservation = new cDal2();
+        // myUser = dal.getUserReservation(UserId);
+        repBokningar.DataSource = dReservation.getUserReservation2(UserId);
+        repBokningar.DataBind();
 
-        if(myUser.Date != null)
-        {
-            tbBokn1.Text = myUser.Meeting.ToString();
+
+      //  if(myUser.Date != null)
+      //  {
+            /* tbBokn1.Text = myUser.Meeting.ToString();
             tbBokn2.Text = myUser.Day.ToString();
             tbBokn3.Text = myUser.Date.ToString();
             tbBokn4.Text = myUser.Month.ToString();
@@ -106,8 +109,11 @@ public partial class MyPage : System.Web.UI.Page
             tbBokn4.Visible = true;
             tbBokn5.Visible = true;
             tbBokn6.Visible = true;
-            tbBokn7.Visible = true;
-        }
+            tbBokn7.Visible = true; */
+
+            
+
+//        }
 
         
     }

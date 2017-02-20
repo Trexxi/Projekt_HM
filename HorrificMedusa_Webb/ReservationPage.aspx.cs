@@ -68,6 +68,7 @@ public partial class ReservationPage : System.Web.UI.Page
         tb2.Visible = true;
         tb3.Visible = true;
         btnSubmit.Visible = true;
+        tbSchemaId.Visible = true;
     }
 
     protected void ddlArtist_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,6 +112,8 @@ public partial class ReservationPage : System.Web.UI.Page
         tb1.Text = scheme.SchemeStartDate.ToString();
         tb2.Text = scheme.SchemeEndDate.ToString();
         tb3.Text = scheme.ArtistName.ToString();
+        tbSchemaId.Text = scheme.SchemeID.ToString();
+        
 
         if (scheme.ReservationID != 0)
         {
@@ -137,6 +140,18 @@ public partial class ReservationPage : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-      
+        cDAL6 myDAL = new cDAL6();
+        Int16 iReservationId = 0;
+
+        iReservationId = myDAL.makeReservation(12, Convert.ToInt16(tbSchemaId.Text));
+
+        if (iReservationId > 0)
+        {
+            // Skicka vidare
+        }
+        else
+        {
+            // det gick åt fanders
+        }
     }
 }
