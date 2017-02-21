@@ -40,25 +40,26 @@
         <asp:TextBox ID="tbInfo5" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:TextBox ID="tbInfo6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:TextBox ID="tbInfo7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        
-        
+        <asp:Button ID="btnBackToMyPage" runat="server" Text="Tillbaka till min sida" Visible="false" OnClick="btnBackToMyPage_Click" />
+        <asp:Button ID="btnChangeInfo" runat="server" Text="Ändra Information" Visible="false" OnClick="btnChangeInfo_Click" /><br />
+
+        <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
         <asp:Repeater ID="repBokningar" runat="server">
 
             <ItemTemplate>
-                <p><%# Eval("Day") %></p>
+                <hr />
+                <p><%# Eval("Meeting") %></p>
+                <p><%# Eval("Day") %>
+                    <%# Eval("Date") %>
+                    <%# Eval("Month") %></p>
+                <p><%# Eval("Starting") %></p>
+                <p><%# Eval("Ending") %></p>
+                <p><%# Eval("TattoArtist") %></p>
+                    
             </ItemTemplate>
 
         </asp:Repeater>
-
-
-        <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
-        <asp:TextBox ID="tbBokn1" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn2" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn3" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn4" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn5" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
-        <asp:TextBox ID="tbBokn7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
+        
     </div>   
     </form>
 </body>

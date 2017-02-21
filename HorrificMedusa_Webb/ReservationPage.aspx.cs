@@ -143,11 +143,11 @@ public partial class ReservationPage : System.Web.UI.Page
         cDAL6 myDAL = new cDAL6();
         Int16 iReservationId = 0;
 
-        iReservationId = myDAL.makeReservation(12, Convert.ToInt16(tbSchemaId.Text));
+        iReservationId = myDAL.makeReservation(Convert.ToInt16(Session["UserId"]), Convert.ToInt16(tbSchemaId.Text));
 
         if (iReservationId > 0)
         {
-            // Skicka vidare
+            Response.Redirect("MyPage.aspx");
         }
         else
         {

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for cDAL6
+/// Summary description for cChangeInformation
 /// </summary>
-public class cDAL6
+public class cChangeInformation
 {
-    public cDAL6()
+    public cChangeInformation()
     {
         //
         // TODO: Add constructor logic here
@@ -20,16 +20,15 @@ public class cDAL6
 
     string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
 
-   // public cUser makeReservation()
-   public Int16 makeReservation(Int16 iUserId, Int16 iSchemaId)
+    public cUser changeInformation(Int16 iUserId, String sFirstName, String sLastName, String sPhoneNumber, String sCounty, String sStreet, String sZIP)
     {
-        Int16 iResultat = 0;
+        //Int16 iResultat = 0;
         // New object
-        //cUser myUser = new cUser();
+        cUser myUser = new cUser();
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
-        SqlCommand cmd = new SqlCommand("uspReservation", conn);
+        SqlCommand cmd = new SqlCommand("uspChangePersonalInformation", conn);
         // Type of commad I want to execute
         cmd.CommandType = CommandType.StoredProcedure;
         try
@@ -38,7 +37,12 @@ public class cDAL6
             conn.Open();
             // Insert the Parameter to the procedure
             cmd.Parameters.AddWithValue("@UserID", iUserId);
-            cmd.Parameters.AddWithValue("@SchemeID", iSchemaId);
+            cmd.Parameters.AddWithValue("@FirstName", sFirstName);
+            cmd.Parameters.AddWithValue("@LastName", sLastName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", sPhoneNumber);
+            cmd.Parameters.AddWithValue("@County", sCounty);
+            cmd.Parameters.AddWithValue("@Street", sStreet);
+            cmd.Parameters.AddWithValue("@ZIP", sZIP);
 
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();
