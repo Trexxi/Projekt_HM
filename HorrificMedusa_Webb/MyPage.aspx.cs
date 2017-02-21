@@ -81,40 +81,51 @@ public partial class MyPage : System.Web.UI.Page
         tbInfo5.Visible = true;
         tbInfo6.Visible = true;
         tbInfo7.Visible = true;
+        btnChangeInfo.Visible = true;
     }
 
     private void getReservationInfo(Int16 UserId)
     {
         //cUser myUser = new cUser();
         cDal2 dReservation = new cDal2();
-        // myUser = dal.getUserReservation(UserId);
+        //myUser = getUserReservation(UserId);
         repBokningar.DataSource = dReservation.getUserReservation2(UserId);
         repBokningar.DataBind();
 
-
-      //  if(myUser.Date != null)
-      //  {
-            /* tbBokn1.Text = myUser.Meeting.ToString();
-            tbBokn2.Text = myUser.Day.ToString();
-            tbBokn3.Text = myUser.Date.ToString();
-            tbBokn4.Text = myUser.Month.ToString();
-            tbBokn5.Text = myUser.Starting.ToString();
-            tbBokn6.Text = myUser.Ending.ToString();
-            tbBokn7.Text = myUser.TattoArtist.ToString();
-
+        if (repBokningar != null)
+        {
             lbBokningsText.Visible = true;
-            tbBokn1.Visible = true;
-            tbBokn2.Visible = true;
-            tbBokn3.Visible = true;
-            tbBokn4.Visible = true;
-            tbBokn5.Visible = true;
-            tbBokn6.Visible = true;
-            tbBokn7.Visible = true; */
+        }  
+    }
 
-            
+    protected void btnChangeInfo_Click(object sender, EventArgs e)
+    {
+        cUser myUser = new cUser();
+        cDAL dal = new cDAL();
 
-//        }
+        tbInfo2.Enabled = true;
+        tbInfo3.Enabled = true;
+        tbInfo4.Enabled = true;
+        tbInfo5.Enabled = true;
+        tbInfo6.Enabled = true;
+        tbInfo7.Enabled = true;
+        btnChangeInfo.Visible = false;
+        btnBackToMyPage.Visible = true;
 
-        
+        lbBokningsText.Visible = false;
+        repBokningar.Visible = false;
+
+    }
+
+    protected void btnBackToMyPage_Click(object sender, EventArgs e)
+    {
+        tbInfo2.Enabled = false;
+        tbInfo3.Enabled = false;
+        tbInfo4.Enabled = false;
+        tbInfo5.Enabled = false;
+        tbInfo6.Enabled = false;
+        tbInfo7.Enabled = false;
+        btnBackToMyPage.Visible = false;
+        btnChangeInfo.Visible = true;
     }
 }
