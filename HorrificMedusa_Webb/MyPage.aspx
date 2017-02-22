@@ -41,7 +41,8 @@
         <asp:TextBox ID="tbInfo6" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:TextBox ID="tbInfo7" runat="server" Visible="false" Enabled="False" ></asp:TextBox><br />
         <asp:Button ID="btnBackToMyPage" runat="server" Text="Tillbaka till min sida" Visible="false" OnClick="btnBackToMyPage_Click" />
-        <asp:Button ID="btnChangeInfo" runat="server" Text="Ändra Information" Visible="false" OnClick="btnChangeInfo_Click" /><br />
+        <asp:Button ID="btnChangeInfo" runat="server" Text="Ändra Information" Visible="false" OnClick="btnChangeInfo_Click" />
+        <asp:Button ID="btnSaveChanges" runat="server" Text="Spara Ändringar" Visible="false" OnClick="btnSaveChanges_Click" /><br />
 
         <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
         <asp:Repeater ID="repBokningar" runat="server">

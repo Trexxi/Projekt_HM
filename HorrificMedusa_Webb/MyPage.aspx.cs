@@ -128,4 +128,9 @@ public partial class MyPage : System.Web.UI.Page
         btnBackToMyPage.Visible = false;
         btnChangeInfo.Visible = true;
     }
+
+    protected void btnSaveChanges_Click(object sender, EventArgs e)
+    {
+
+    }
 }
