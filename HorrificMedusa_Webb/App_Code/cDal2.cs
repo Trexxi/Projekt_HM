@@ -54,6 +54,8 @@ public class cDal2
 
                     myUser.TattoArtist = dr["TattoArtist"].ToString();
 
+                    myUser.ReservationID = Convert.ToInt16(dr["ReservationID"].ToString());
+
                 }
             }
             return myUser;

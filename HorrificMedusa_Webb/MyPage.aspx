@@ -43,9 +43,10 @@
         <asp:Button ID="btnBackToMyPage" runat="server" Text="Tillbaka till min sida" Visible="false" OnClick="btnBackToMyPage_Click" />
         <asp:Button ID="btnChangeInfo" runat="server" Text="Ändra Information" Visible="false" OnClick="btnChangeInfo_Click" />
         <asp:Button ID="btnSaveChanges" runat="server" Text="Spara Ändringar" Visible="false" OnClick="btnSaveChanges_Click" /><br />
+        <asp:TextBox ID="tbTest" runat="server" Visible="false" Enabled="false"></asp:TextBox><br />
 
         <asp:Label ID="lbBokningsText" runat="server" Text="Mina Bokningar" Visible="false"></asp:Label><br />
-        <asp:Repeater ID="repBokningar" runat="server">
+        <asp:Repeater ID="repBokningar" runat="server" OnItemCommand="repBokningar_ItemCommand">
 
             <ItemTemplate>
                 <hr />
@@ -56,6 +57,7 @@
                 <p><%# Eval("Starting") %></p>
                 <p><%# Eval("Ending") %></p>
                 <p><%# Eval("TattoArtist") %></p>
+                <asp:Button ID="btnAvboka" runat="server" Text="Avboka Tid" OnClick="btnAvboka_Click" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "ReservationID" )%>'/>
                     
             </ItemTemplate>
 
