@@ -7,11 +7,11 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for cChangeInformation
+/// Summary description for cCancelReservation
 /// </summary>
-public class cChangeInformation
+public class cCancelReservation
 {
-    public cChangeInformation()
+    public cCancelReservation()
     {
         //
         // TODO: Add constructor logic here
@@ -20,7 +20,7 @@ public class cChangeInformation
 
     string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
 
-    public cUser changeInformation(Int16 iUserId, String sFirstName, String sLastName, String sPhoneNumber, String sCounty, String sStreet, String sZIP)
+    public cUser cancelReservation(Int16 iReservationID)
     {
         //Int16 iResultat = 0;
         // New object
@@ -28,7 +28,7 @@ public class cChangeInformation
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
-        SqlCommand cmd = new SqlCommand("uspChangePersonalInformation", conn);
+        SqlCommand cmd = new SqlCommand("uspCancelReservation", conn);
         // Type of commad I want to execute
         cmd.CommandType = CommandType.StoredProcedure;
         try
@@ -36,13 +36,7 @@ public class cChangeInformation
             // Open the connection to the database
             conn.Open();
             // Insert the Parameter to the procedure
-            cmd.Parameters.AddWithValue("@UserID", iUserId);
-            cmd.Parameters.AddWithValue("@FirstName", sFirstName);
-            cmd.Parameters.AddWithValue("@LastName", sLastName);
-            cmd.Parameters.AddWithValue("@PhoneNumber", sPhoneNumber);
-            cmd.Parameters.AddWithValue("@County", sCounty);
-            cmd.Parameters.AddWithValue("@Street", sStreet);
-            cmd.Parameters.AddWithValue("@ZIP", sZIP);
+            cmd.Parameters.AddWithValue("@ReservationID", iReservationID);
 
             // Execute my procedure and load the result to dr
             SqlDataReader dr = cmd.ExecuteReader();

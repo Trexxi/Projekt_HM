@@ -115,6 +115,8 @@ public partial class MyPage : System.Web.UI.Page
         lbBokningsText.Visible = false;
         repBokningar.Visible = false;
 
+        btnSaveChanges.Visible = true;
+
     }
 
     protected void btnBackToMyPage_Click(object sender, EventArgs e)
@@ -127,10 +129,50 @@ public partial class MyPage : System.Web.UI.Page
         tbInfo7.Enabled = false;
         btnBackToMyPage.Visible = false;
         btnChangeInfo.Visible = true;
+
+        lbBokningsText.Visible = true;
+        repBokningar.Visible = true;
+
+        btnSaveChanges.Visible = false;
     }
 
     protected void btnSaveChanges_Click(object sender, EventArgs e)
     {
+        cChangeInformation myDAL = new cChangeInformation();
 
+        myDAL.changeInformation(Convert.ToInt16(Session["UserId"]), tbInfo2.Text, tbInfo3.Text, tbInfo4.Text, tbInfo5.Text, tbInfo6.Text, tbInfo7.Text);
+
+        tbInfo2.Enabled = false;
+        tbInfo3.Enabled = false;
+        tbInfo4.Enabled = false;
+        tbInfo5.Enabled = false;
+        tbInfo6.Enabled = false;
+        tbInfo7.Enabled = false;
+        btnBackToMyPage.Visible = false;
+        btnChangeInfo.Visible = true;
+
+        lbBokningsText.Visible = true;
+        repBokningar.Visible = true;
+
+        btnSaveChanges.Visible = false;
+
+    }
+
+    protected void repBokningar_ItemCommand(object source, RepeaterCommandEventArgs e)
+       {
+
+        tbTest.Text = e.CommandArgument.ToString();
+
+        cCancelReservation myDAL = new cCancelReservation();
+
+        myDAL.cancelReservation(Convert.ToInt16(tbTest.Text));
+
+        getReservationInfo(Convert.ToInt16(Session["UserId"].ToString()));
+
+    }
+
+    protected void btnAvboka_Click(object sender, EventArgs e)
+    {
+        
     }
 }
