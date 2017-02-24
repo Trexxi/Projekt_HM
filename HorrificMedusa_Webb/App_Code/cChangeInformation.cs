@@ -22,7 +22,6 @@ public class cChangeInformation
 
     public cUser changeInformation(Int16 iUserId, String sFirstName, String sLastName, String sPhoneNumber, String sCounty, String sStreet, String sZIP)
     {
-        //Int16 iResultat = 0;
         // New object
         cUser myUser = new cUser();
         // Create a connection

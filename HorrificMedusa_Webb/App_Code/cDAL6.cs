@@ -20,12 +20,10 @@ public class cDAL6
 
     string connStr = ConfigurationManager.ConnectionStrings["MedusaConnectionString"].ToString();
 
-   // public cUser makeReservation()
    public Int16 makeReservation(Int16 iUserId, Int16 iSchemaId)
     {
-        Int16 iResultat = 0;
         // New object
-        //cUser myUser = new cUser();
+        Int16 iResultat = 0;
         // Create a connection
         SqlConnection conn = new SqlConnection(connStr);
         // Name of the Procedure I want to call
@@ -47,7 +45,6 @@ public class cDAL6
             {
                 while (dr.Read())
                 {
-                    //myUser.UserId = Convert.ToInt16(dr["Resultat"].ToString());
                     iResultat = Convert.ToInt16(dr["ReservationID"]);
                 }
             }

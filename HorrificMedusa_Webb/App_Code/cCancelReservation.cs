@@ -22,7 +22,6 @@ public class cCancelReservation
 
     public cUser cancelReservation(Int16 iReservationID)
     {
-        //Int16 iResultat = 0;
         // New object
         cUser myUser = new cUser();
         // Create a connection

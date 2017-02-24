@@ -23,21 +23,7 @@ public partial class Registry : System.Web.UI.Page
 
     protected void btnRegistryButton_Click(object sender, EventArgs e)
     {
-        /* cUser myUser = new cUser();
-        cUser myResultUser = new cUser();
-        cDAL3 myDAL = new cDAL3();
-
-        myUser.Password = Registry1.Password.ToString();
-        myUser.UserName = Registry1.UserName.ToString();
-
-        myResultUser = myDAL.makeRegistry(myUser);
-        if (myResultUser.UserId > 0)
-        {
-            Registry1.UserName = myResultUser.UserId.ToString();
-            Session.Add("UserId", myResultUser.UserId.ToString());
-            Response.Redirect("MyPage.aspx");
-        }
-        */
+        
     }
 
     protected void Registry1_CreatedUser(object sender, EventArgs e)

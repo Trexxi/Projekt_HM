@@ -86,9 +86,7 @@ public partial class MyPage : System.Web.UI.Page
 
     private void getReservationInfo(Int16 UserId)
     {
-        //cUser myUser = new cUser();
         cDal2 dReservation = new cDal2();
-        //myUser = getUserReservation(UserId);
         repBokningar.DataSource = dReservation.getUserReservation2(UserId);
         repBokningar.DataBind();
 
